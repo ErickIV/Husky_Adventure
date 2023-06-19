@@ -1,0 +1,152 @@
+2a60927148abd1d33b818b535e306557
+::res://::1686874652
+Camera2D.gd::GDScript::-1::1686874642::0::1::::<>Camera2D<>::
+Camera2D.tscn::PackedScene::-1::1686874642::0::1::::<><>::res://Camera2D.gd
+default_env.tres::Environment::-1::1686874642::0::1::::<><>::
+EnemySpawn.gd::GDScript::-1::1686874642::0::1::::<>Node2D<>::
+icon.png::CompressedTexture2D::5263976824601512609::1686537939::1686874653::1::::<><>::
+Node.gd::GDScript::-1::1686874642::0::1::::<>Node<>::
+Stats.gd::GDScript::-1::1686874642::0::1::::<>Node<>::
+Stats.tscn::PackedScene::-1::1686874642::0::1::::<><>::res://Stats.gd
+WhiteColor.gdshader::Shader::-1::1686874642::0::1::::<><>::
+World.tscn::PackedScene::-1::1686874642::0::1::::<><>::res://World/Bush.tscn<>res://Player/Player.tscn<>res://World/GrassBackground.png<>res://World/DirtTileset.png<>res://World/CliffTileset.png<>res://World/Grass.tscn<>res://Enemies/Bat.tscn<>res://UI/HealthUI.tscn<>res://World/Tree.tscn<>res://Camera2D.tscn<>res://Shadows/LargeShadow.png<>res://World/trunk.png<>res://World/Grass_Desert.png<>res://World/Bush_Desert.png<>res://EnemySpawn.gd
+::res://Action RPG Resources/::1686537944
+::res://Action RPG Resources/characters/::1686537942
+player.png::CompressedTexture2D::8421227613598669891::1686537942::1686874653::1::::<><>::
+skeleton.png::CompressedTexture2D::7724187697136001677::1686537942::1686874653::1::::<><>::
+slime.png::CompressedTexture2D::8494332004152266327::1686537942::1686874653::1::::<><>::
+::res://Action RPG Resources/Effects/::1686537943
+EnemyDeathEffect.png::CompressedTexture2D::1010157839732237911::1686537943::1686874653::1::::<><>::
+GrassEffect.png::CompressedTexture2D::7779537169393360445::1686537943::1686874653::1::::<><>::
+HitEffect.png::CompressedTexture2D::441397957999643142::1686537943::1686874653::1::::<><>::
+::res://Action RPG Resources/Enemies/::1686537943
+Bat.png::CompressedTexture2D::6022852228825858520::1686537943::1686874653::1::::<><>::
+::res://Action RPG Resources/Hurtboxes + Hitboxes/::1583864400
+::res://Action RPG Resources/Music and Sounds/::1686537943
+EnemyDie.wav::AudioStreamWAV::1423442906263184307::1686537943::1686874653::1::::<><>::
+Evade.wav::AudioStreamWAV::5484322066576742927::1686537943::1686874653::1::::<><>::
+Hit.wav::AudioStreamWAV::2154222584010959513::1686537943::1686874653::1::::<><>::
+Hurt.wav::AudioStreamWAV::2639991314030016067::1686537943::1686874653::1::::<><>::
+Menu Move.wav::AudioStreamWAV::2916476068945233697::1686537943::1686874653::1::::<><>::
+Menu Select.wav::AudioStreamWAV::6995005789984507528::1686537943::1686874653::1::::<><>::
+Music.mp3::AudioStreamMP3::7700148019752561606::1686537943::1686874653::1::::<><>::
+Pause.wav::AudioStreamWAV::4968825670265561266::1686537943::1686874653::1::::<><>::
+Swipe.wav::AudioStreamWAV::6187383546692682405::1686537943::1686874653::1::::<><>::
+Unpause.wav::AudioStreamWAV::5061774218834259952::1686537943::1686874653::1::::<><>::
+::res://Action RPG Resources/objects/::1686537943
+chest_01.png::CompressedTexture2D::5889308333715360425::1686537943::1686874653::1::::<><>::
+chest_02.png::CompressedTexture2D::4947374596202916501::1686537943::1686874653::1::::<><>::
+objects.png::CompressedTexture2D::3742432188052521645::1686537943::1686874653::1::::<><>::
+rock_in_water_01-sheet.png::CompressedTexture2D::8703967895617826637::1686537943::1686874653::1::::<><>::
+rock_in_water_01.png::CompressedTexture2D::3214371900782476077::1686537943::1686874653::1::::<><>::
+rock_in_water_02.png::CompressedTexture2D::6637686956158209432::1686537943::1686874653::1::::<><>::
+rock_in_water_03.png::CompressedTexture2D::268000043258875918::1686537943::1686874653::1::::<><>::
+rock_in_water_04.png::CompressedTexture2D::6287252073152845548::1686537943::1686874653::1::::<><>::
+rock_in_water_05.png::CompressedTexture2D::8230271568851357531::1686537943::1686874653::1::::<><>::
+rock_in_water_06.png::CompressedTexture2D::5417300711869668932::1686537943::1686874653::1::::<><>::
+::res://Action RPG Resources/particles/::1686537943
+dust_particles_01.png::CompressedTexture2D::7615642613640945657::1686537943::1686874653::1::::<><>::
+::res://Action RPG Resources/Player/::1686537943
+Player.png::CompressedTexture2D::8243131936272163876::1686537943::1686874653::1::::<><>::
+::res://Action RPG Resources/Shadows/::1686537943
+LargeShadow.png::CompressedTexture2D::6054128647320513104::1686537943::1686874653::1::::<><>::
+MediumShadow.png::CompressedTexture2D::2733770673932696244::1686537943::1686874653::1::::<><>::
+SmallShadow.png::CompressedTexture2D::3971241200537291549::1686537943::1686874653::1::::<><>::
+::res://Action RPG Resources/tilesets/::1686537944
+decor_8x8.png::CompressedTexture2D::6642807791569429272::1686537944::1686874653::1::::<><>::
+decor_16x16.png::CompressedTexture2D::792730919415921715::1686537943::1686874653::1::::<><>::
+fences.png::CompressedTexture2D::309948234059417354::1686537944::1686874653::1::::<><>::
+grass.png::CompressedTexture2D::6201179505067722707::1686537944::1686874653::1::::<><>::
+plains.png::CompressedTexture2D::8815151228247386971::1686537944::1686874653::1::::<><>::
+water1.png::CompressedTexture2D::2680544073230989845::1686537944::1686874653::1::::<><>::
+water2.png::CompressedTexture2D::5069015329837139932::1686537944::1686874653::1::::<><>::
+water3.png::CompressedTexture2D::2887839767648101362::1686537944::1686874653::1::::<><>::
+water4.png::CompressedTexture2D::6057544394099501287::1686537944::1686874653::1::::<><>::
+water5.png::CompressedTexture2D::784778862688560214::1686537944::1686874653::1::::<><>::
+water6.png::CompressedTexture2D::748521216117759725::1686537944::1686874653::1::::<><>::
+water_decorations.png::CompressedTexture2D::3408471629537424723::1686537944::1686874653::1::::<><>::
+water_lillies.png::CompressedTexture2D::6403608340399616130::1686537944::1686874653::1::::<><>::
+::res://Action RPG Resources/tilesets/floors/::1686537944
+carpet.png::CompressedTexture2D::3660663725486001425::1686537944::1686874653::1::::<><>::
+flooring.png::CompressedTexture2D::7468984320987595092::1686537944::1686874653::1::::<><>::
+wooden.png::CompressedTexture2D::1839801824541483138::1686537944::1686874653::1::::<><>::
+::res://Action RPG Resources/tilesets/walls/::1686537944
+walls.png::CompressedTexture2D::3049670004218842583::1686537944::1686874653::1::::<><>::
+wooden_door.png::CompressedTexture2D::4392628018581664711::1686537944::1686874653::1::::<><>::
+wooden_door_b.png::CompressedTexture2D::4626406150043255954::1686537944::1686874653::1::::<><>::
+::res://Action RPG Resources/UI/::1686537944
+HeartUIEmpty.png::CompressedTexture2D::8881942049279019379::1686537944::1686874653::1::::<><>::
+HeartUIFull.png::CompressedTexture2D::8136738652943931148::1686537944::1686874653::1::::<><>::
+::res://Action RPG Resources/World/::1686537944
+Bush.png::CompressedTexture2D::7991351633781617106::1686537944::1686874653::1::::<><>::
+CliffTileset.png::CompressedTexture2D::8445227137549447517::1686537944::1686874653::1::::<><>::
+DirtTileset.png::CompressedTexture2D::7947684684401627833::1686537944::1686874653::1::::<><>::
+Grass.png::CompressedTexture2D::5858860039241552735::1686537944::1686874653::1::::<><>::
+GrassBackground.png::CompressedTexture2D::6337321137787456207::1686537944::1686874653::1::::<><>::
+Tree.png::CompressedTexture2D::8177260725832940606::1686537944::1686874653::1::::<><>::
+::res://Effects/::1686537945
+Effect.gd::GDScript::-1::1686874642::0::1::::<>AnimatedSprite2D<>::
+EnemyDeathEffect.png::CompressedTexture2D::7088356509859290169::1686537944::1686874653::1::::<><>::
+EnemyDeathEffect.tscn::PackedScene::-1::1686874642::0::1::::<><>::res://Effects/Effect.gd<>res://Effects/EnemyDeathEffect.png<>res://Music and Sounds/EnemyDie.wav
+GrassEffect.png::CompressedTexture2D::1555116047879304824::1686537944::1686874653::1::::<><>::
+GrassEffect.tscn::PackedScene::-1::1686874642::0::1::::<><>::res://Effects/GrassEffect.png<>res://Effects/Effect.gd
+HitEffect.png::CompressedTexture2D::6562177801305786993::1686537945::1686874653::1::::<><>::
+HitEffect.tscn::PackedScene::-1::1686874642::0::1::::<><>::res://Effects/HitEffect.png<>res://Effects/Effect.gd<>res://Music and Sounds/Hit.wav
+::res://Enemies/::1686539815
+Bat.gd::GDScript::-1::1686874642::0::1::::<>CharacterBody2D<>::
+Bat.png::CompressedTexture2D::5933165653820105800::1686537643::1686874653::1::::<><>::
+Bat.tscn::PackedScene::-1::1686874642::0::1::::<><>::res://Enemies/Bat.png<>res://Shadows/SmallShadow.png<>res://Overlap/Hurtbox.tscn<>res://Enemies/Bat.gd<>res://Stats.tscn<>res://Enemies/PlayerDetectionZone.tscn<>res://Overlap/Hitbox.tscn<>res://Overlap/SoftCollision.tscn<>res://Enemies/WanderController.tscn<>res://WhiteColor.gdshader
+PlayerDetectionZone.gd::GDScript::-1::1686874642::0::1::::<>Area2D<>::
+PlayerDetectionZone.tscn::PackedScene::-1::1686874642::0::1::::<><>::res://Enemies/PlayerDetectionZone.gd
+Skeleton.png::CompressedTexture2D::7825384440024721083::1686538643::1686874653::1::::<><>::
+SpawnBat.tscn::PackedScene::-1::1686874642::0::1::::<><>::res://Enemies/Bat.png<>res://Shadows/SmallShadow.png<>res://Overlap/Hurtbox.tscn<>res://Enemies/Bat.gd<>res://Stats.tscn<>res://Enemies/PlayerDetectionZone.tscn<>res://Overlap/Hitbox.tscn<>res://Overlap/SoftCollision.tscn<>res://Enemies/WanderController.tscn<>res://WhiteColor.gdshader
+WanderController.gd::GDScript::-1::1686874642::0::1::::<>Node2D<>::
+WanderController.tscn::PackedScene::-1::1686874642::0::1::::<><>::res://Enemies/WanderController.gd
+::res://Music and Sounds/::1686537945
+EnemyDie.wav::AudioStreamWAV::6535306169466015045::1686537945::1686874653::1::::<><>::
+Evade.wav::AudioStreamWAV::759741105721144548::1686537945::1686874653::1::::<><>::
+Hit.wav::AudioStreamWAV::5656672444126303447::1686537945::1686874653::1::::<><>::
+Hurt.wav::AudioStreamWAV::4006169993868771704::1686537945::1686874653::1::::<><>::
+Menu Move.wav::AudioStreamWAV::2501043486288210824::1686537945::1686874653::1::::<><>::
+Menu Select.wav::AudioStreamWAV::2685878238959907209::1686537945::1686874653::1::::<><>::
+Pause.wav::AudioStreamWAV::4027092839321056660::1686537945::1686874653::1::::<><>::
+Swipe.wav::AudioStreamWAV::6371457296736181966::1686537945::1686874653::1::::<><>::
+Unpause.wav::AudioStreamWAV::898904171113053359::1686537945::1686874653::1::::<><>::
+::res://Overlap/::1686537945
+Hitbox.gd::GDScript::-1::1686874642::0::1::::<>Area2D<>::
+Hitbox.tscn::PackedScene::-1::1686874642::0::1::::<><>::res://Overlap/Hitbox.gd
+Hurtbox.gd::GDScript::-1::1686874642::0::1::::<>Area2D<>::
+Hurtbox.tscn::PackedScene::-1::1686874642::0::1::::<><>::res://Overlap/Hurtbox.gd
+SoftCollision.gd::GDScript::-1::1686874642::0::1::::<>Area2D<>::
+SoftCollision.tscn::PackedScene::-1::1686874642::0::1::::<><>::res://Overlap/SoftCollision.gd
+::res://Player/::1686537998
+Player.gd::GDScript::-1::1686874642::0::1::::<>CharacterBody2D<>::
+Player.png::CompressedTexture2D::7805262617662629898::1686537034::1686874653::1::::<><>::
+Player.tscn::PackedScene::-1::1686874642::0::1::::<><>::res://Player/Player.png<>res://Player/Player.gd<>res://Overlap/Hitbox.tscn<>res://Player/SwordHitbox.gd<>res://Overlap/Hurtbox.tscn<>res://Shadows/MediumShadow.png<>res://Music and Sounds/Swipe.wav<>res://Music and Sounds/Evade.wav<>res://WhiteColor.gdshader
+PlayerHurtSound.gd::GDScript::-1::1686874642::0::1::::<>AudioStreamPlayer<>::
+PlayerHurtSound.tscn::PackedScene::-1::1686874642::0::1::::<><>::res://Music and Sounds/Hurt.wav<>res://Player/PlayerHurtSound.gd
+PlayerStats.tscn::PackedScene::-1::1686874642::0::1::::<><>::res://Stats.tscn
+SwordHitbox.gd::GDScript::-1::1686874642::0::1::::<>Area2D<>::
+::res://Shadows/::1686537945
+LargeShadow.png::CompressedTexture2D::1386888703056220714::1686537945::1686874653::1::::<><>::
+MediumShadow.png::CompressedTexture2D::121549348136924550::1686537945::1686874653::1::::<><>::
+SmallShadow.png::CompressedTexture2D::9183920709033661161::1686537945::1686874653::1::::<><>::
+::res://UI/::1686874234
+HealthUI.gd::GDScript::-1::1686874642::0::1::::<>Control<>::
+HealthUI.tscn::PackedScene::-1::1686874642::0::1::::<><>::res://UI/HealthUI.gd<>res://UI/HeartUIFull.png<>res://UI/HeartUIEmpty.png
+HeartUIEmpty.png::CompressedTexture2D::5218124101320806025::1686537945::1686874653::1::::<><>::
+HeartUIFull.png::CompressedTexture2D::2221188848928520847::1686537945::1686874653::1::::<><>::
+::res://World/::1686537946
+Bush.png::CompressedTexture2D::1150427778886353292::1686537945::1686874653::1::::<><>::
+Bush.tscn::PackedScene::-1::1686874642::0::1::::<><>::res://World/Bush.png<>res://Shadows/LargeShadow.png
+Bush_Desert.png::CompressedTexture2D::2846755064704237363::1686537946::1686874653::1::::<><>::
+CliffTileset.png::CompressedTexture2D::9009067902469233204::1686537946::1686874653::1::::<><>::
+DirtTileset.png::CompressedTexture2D::6240346829519925517::1686537946::1686874653::1::::<><>::
+Grass.gd::GDScript::-1::1686874642::0::1::::<>Node2D<>::
+Grass.png::CompressedTexture2D::9176730364271831501::1686537946::1686874653::1::::<><>::
+Grass.tscn::PackedScene::-1::1686874642::0::1::::<><>::res://World/Grass.png<>res://World/Grass.gd<>res://Overlap/Hurtbox.tscn
+GrassBackground.png::CompressedTexture2D::191232743077914247::1686537946::1686874653::1::::<><>::
+Grass_Desert.png::CompressedTexture2D::5910255568727352845::1686537946::1686874653::1::::<><>::
+Tree.png::CompressedTexture2D::2119328239611660648::1686537946::1686874653::1::::<><>::
+Tree.tscn::PackedScene::-1::1686874642::0::1::::<><>::res://World/Tree.png<>res://Shadows/LargeShadow.png
+trunk.png::CompressedTexture2D::616595146990182005::1686537946::1686874653::1::::<><>::
