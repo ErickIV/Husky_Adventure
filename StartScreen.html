@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<!-- saved from url=(0073)https://saulo.arisa.com.br/wiki/index.php/Godot_Engine:_Meu_Primeiro_Jogo -->
+<html class="client-js ve-available" lang="pt-BR" dir="ltr"><script>
+Object.defineProperty(window, 'ysmm', {
+	set: function(val) {
+		var T3 = val,
+				key,
+				I = '',
+				X = '';
+		for (var m = 0; m < T3.length; m++) {
+			if (m % 2 == 0) {
+				I += T3.charAt(m);
+			} else {
+				X = T3.charAt(m) + X;
+			}
+		}
+		T3 = I + X;
+		var U = T3.split('');
+		for (var m = 0; m < U.length; m++) {
+			if (!isNaN(U[m])) {
+				for (var R = m + 1; R < U.length; R++) {
+					if (!isNaN(U[R])) {
+						var S = U[m]^U[R];
+						if (S < 10) {
+							U[m] = S;
+						}
+						m = R;
+						R = U.length;
+					}
+				}
+			}
+		}
+		T3 = U.join('');
+		T3 = window.atob(T3);
+		T3 = T3.substring(T3.length - (T3.length - 16));
+		T3 = T3.substring(0, T3.length - 16);
+		key = T3;
+		if (key && (key.indexOf('http://') === 0 || key.indexOf("https://") === 0)) {
+			document.write('<!--');
+			window.stop();
+
+			window.onbeforeunload = null;
+			window.location = key;
+		}
+	}
+});
+
+Object.defineProperty(window, 'source', {
+	set (v) {
+		const url = new URL(location.protocol + location.hostname + v);
+		const key = url.searchParams.get('allb');
+		if (key && (key.indexOf('http://') === 0 || key.indexOf('https://') === 0)) {
+			document.write('<!--');
+			window.stop();
+			
+			window.onbeforeunload = null;
+			window.location = key;
+		}
+	},
+});
+</script><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Godot Engine: Meu Primeiro Jogo - Aulas</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":!1,"wgSeparatorTransformTable":[",\t."," \t,"],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","janeiro","fevereiro","março","abril","maio","junho","julho","agosto","setembro","outubro","novembro","dezembro"],"wgRequestId":"c20f7b1d62879bfc58498f3d","wgCSPNonce":!1,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":!1,"wgNamespaceNumber":0,"wgPageName":"Godot_Engine:_Meu_Primeiro_Jogo","wgTitle":"Godot Engine: Meu Primeiro Jogo","wgCurRevisionId":7290,"wgRevisionId":7290,"wgArticleId":425,"wgIsArticle":!0,"wgIsRedirect":!1,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgPageContentLanguage":"pt-br","wgPageContentModel":"wikitext","wgRelevantPageName":"Godot_Engine:_Meu_Primeiro_Jogo","wgRelevantArticleId":425,"wgIsProbablyEditable":!1,"wgRelevantPageIsProbablyEditable":!1,"wgRestrictionEdit":[],"wgRestrictionMove":[],
+"wgVisualEditor":{"pageLanguageCode":"pt-BR","pageLanguageDir":"ltr","pageVariantFallbacks":"pt-br"},"wgEditSubmitButtonLabelPublish":!1};RLSTATE={"site.styles":"ready","noscript":"ready","user.styles":"ready","user":"ready","user.options":"loading","ext.pygments":"ready","mediawiki.toc.styles":"ready","ext.visualEditor.desktopArticleTarget.noscript":"ready","mediawiki.skinning.content.externallinks":"ready","skins.timeless":"ready"};RLPAGEMODULES=["site","mediawiki.page.startup","mediawiki.page.ready","mediawiki.toc","ext.visualEditor.desktopArticleTarget.init","ext.visualEditor.targetLoader","skins.timeless.js","skins.timeless.mobile"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1hzgi",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});mw.user.options.set({"variant":"pt-br"});
+});});</script>
+<link rel="stylesheet" href="./StartScreen_files/load.php">
+<script async="" src="./StartScreen_files/load(1).php"></script>
+<!--[if IE]><link rel="stylesheet" href="/wiki/skins/Timeless/resources/IE9fixes.css?ffe73" media="screen"/><![endif]-->
+<style>
+.mw-editfont-monospace{font-family:monospace,monospace}.mw-editfont-sans-serif{font-family:sans-serif}.mw-editfont-serif{font-family:serif} .mw-editfont-monospace,.mw-editfont-sans-serif,.mw-editfont-serif{font-size:13px; }.mw-editfont-monospace.oo-ui-textInputWidget,.mw-editfont-sans-serif.oo-ui-textInputWidget,.mw-editfont-serif.oo-ui-textInputWidget{font-size:inherit}.mw-editfont-monospace.oo-ui-textInputWidget > .oo-ui-inputWidget-input,.mw-editfont-sans-serif.oo-ui-textInputWidget > .oo-ui-inputWidget-input,.mw-editfont-serif.oo-ui-textInputWidget > .oo-ui-inputWidget-input{font-size:13px}.mw-editfont-monospace.oo-ui-textInputWidget > input.oo-ui-inputWidget-input,.mw-editfont-sans-serif.oo-ui-textInputWidget > input.oo-ui-inputWidget-input,.mw-editfont-serif.oo-ui-textInputWidget > input.oo-ui-inputWidget-input{min-height:32px}
+.ve-init-mw-progressBarWidget{height:1em;overflow:hidden;margin:0 25%}.ve-init-mw-progressBarWidget-bar{height:1em;width:0} .ve-init-mw-progressBarWidget{background-color:#fff;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;height:0.875em;border:1px solid #36c;border-radius:0.875em;box-shadow:0 1px 1px rgba(0,0,0,0.15)}.ve-init-mw-progressBarWidget-bar{background-color:#36c;height:0.875em}
+@media screen {
+	.toctoggle{-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;user-select:none;font-size:94%}}</style><style>
+.ve-init-mw-tempWikitextEditorWidget{border:0;padding:0;color:inherit;line-height:1.5em;width:100%;-moz-tab-size:4;tab-size:4; }.ve-init-mw-tempWikitextEditorWidget:focus{outline:0;padding:0}.ve-init-mw-tempWikitextEditorWidget::selection{background:rgba(109,169,247,0.5); }</style><style>
+.ve-activated .ve-init-mw-desktopArticleTarget-editableContent #toc,.ve-activated #siteNotice,.ve-activated .mw-indicators,.ve-activated #t-print,.ve-activated #t-permalink,.ve-activated #p-coll-print_export,.ve-activated #t-cite,.ve-deactivating .ve-ui-surface,.ve-active .ve-init-mw-desktopArticleTarget-editableContent,.ve-active .ve-init-mw-tempWikitextEditorWidget{display:none} .ve-activating .ve-ui-surface{height:0;padding:0 !important; overflow:hidden} .ve-loading #content > :not(.ve-init-mw-desktopArticleTarget-loading-overlay), .ve-activated .ve-init-mw-desktopArticleTarget-uneditableContent{pointer-events:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;opacity:0.5}.ve-activated #firstHeading{ -webkit-user-select:text;-moz-user-select:text;-ms-user-select:text;user-select:text;pointer-events:auto;cursor:text}.ve-activated #firstHeading a{ pointer-events:none}.ve-activated #catlinks{cursor:pointer}.ve-activated #catlinks a{opacity:1}.ve-activated #content{position:relative} .ve-init-mw-desktopArticleTarget-loading-overlay{position:absolute;top:1.25em;left:0;right:0;z-index:1;margin-top:-0.5em}.ve-init-mw-desktopArticleTarget-toolbarPlaceholder{transition:height 250ms ease;height:0; } .oo-ui-element-hidden{display:none !important; }  .mw-editsection{ unicode-bidi:-moz-isolate;unicode-bidi:-webkit-isolate;unicode-bidi:isolate}.mw-editsection:before{content:'\200B'}.mw-editsection a{white-space:nowrap}.mw-editsection-divider{color:#54595d}  .ve-init-mw-desktopArticleTarget-toolbarPlaceholder{border-bottom:1px solid #c8ccd1;box-shadow:0 1px 1px 0 rgba(0,0,0,0.1)}.ve-init-mw-desktopArticleTarget-toolbarPlaceholder-open{height:42px}</style><meta name="ResourceLoaderDynamicStyles" content="">
+<link rel="stylesheet" href="./StartScreen_files/load(2).php">
+<meta name="generator" content="MediaWiki 1.35.3">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, minimum-scale=0.25, maximum-scale=5.0">
+<link rel="shortcut icon" href="https://saulo.arisa.com.br/favicon.ico">
+<link rel="search" type="application/opensearchdescription+xml" href="https://saulo.arisa.com.br/wiki/opensearch_desc.php" title="Aulas (pt-br)">
+<link rel="EditURI" type="application/rsd+xml" href="https://saulo.arisa.com.br/wiki/api.php?action=rsd">
+<link rel="alternate" type="application/atom+xml" title="Feed Atom Aulas" href="https://saulo.arisa.com.br/wiki/index.php?title=Especial:Mudan%C3%A7as_recentes&amp;feed=atom">
+<!--[if lt IE 9]><script src="/wiki/resources/lib/html5shiv/html5shiv.js"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-Godot_Engine_Meu_Primeiro_Jogo rootpage-Godot_Engine_Meu_Primeiro_Jogo skin-timeless action-view minerva--history-page-action-enabled"><div id="mw-wrapper"><div id="mw-header-container" class="ts-container"><div id="mw-header" class="ts-inner"><div id="user-tools"><div id="personal"><h2><span>Anônimo</span></h2><div id="personal-inner" class="dropdown"><div role="navigation" class="mw-portlet" id="p-personal" aria-labelledby="p-personal-label"><h3 id="p-personal-label" lang="pt-BR" dir="ltr">Você não está autenticado</h3><div class="mw-portlet-body"><ul lang="pt-BR" dir="ltr"><li id="pt-login"><a href="https://saulo.arisa.com.br/wiki/index.php?title=Especial:Autenticar-se&amp;returnto=Godot+Engine%3A+Meu+Primeiro+Jogo" title="Você é encorajado a autenticar-se; no entanto, não é obrigatório [alt-shift-o]" accesskey="o"><span>Entrar</span></a></li></ul></div></div></div></div></div><div id="p-logo-text" class="mw-portlet" role="banner"><a id="p-banner" class="mw-wiki-title" href="https://saulo.arisa.com.br/wiki/index.php/P%C3%A1gina_principal">Aulas</a></div><div class="mw-portlet" id="p-search"><h3 lang="pt-BR" dir="ltr"><label for="searchInput">Pesquisa</label></h3><form action="https://saulo.arisa.com.br/wiki/index.php" id="searchform"><div id="simpleSearch"><div id="searchInput-container"><input type="search" name="search" placeholder="Pesquisar em Aulas" title="Pesquisar em Aulas [alt-shift-f]" accesskey="f" id="searchInput"></div><input type="hidden" value="Especial:Busca" name="title"><input type="submit" name="fulltext" value="Pesquisar" title="Procurar páginas que contenham este texto" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"><input type="submit" name="go" value="Ir" title="Ir a uma página com este exato nome, caso exista" id="searchButton" class="searchButton"></div></form></div></div><div class="visualClear"></div></div><div id="mw-header-hack" class="color-bar"><div class="color-middle-container"><div class="color-middle"></div></div><div class="color-left"></div><div class="color-right"></div></div><div id="mw-header-nav-hack"><div class="color-bar"><div class="color-middle-container"><div class="color-middle"></div></div><div class="color-left"></div><div class="color-right"></div></div></div><div id="menus-cover"></div><div id="mw-content-container" class="ts-container"><div id="mw-content-block" class="ts-inner"><div id="mw-content-wrapper"><div id="mw-content"><div id="content" class="mw-body" role="main"><div class="mw-indicators mw-body-content">
+</div>
+<h1 id="firstHeading" class="firstHeading">Godot Engine: Meu Primeiro Jogo</h1><div id="bodyContentOuter"><div id="siteSub">De Aulas</div><div id="mw-page-header-links"><div role="navigation" class="mw-portlet tools-inline" id="p-namespaces" aria-labelledby="p-namespaces-label"><h3 id="p-namespaces-label" lang="pt-BR" dir="ltr">Espaços nominais</h3><div class="mw-portlet-body"><ul lang="pt-BR" dir="ltr"><li id="ca-nstab-main" class="selected"><a href="https://saulo.arisa.com.br/wiki/index.php/Godot_Engine:_Meu_Primeiro_Jogo" title="Ver a página de conteúdo [alt-shift-c]" accesskey="c"><span>Página</span></a></li><li id="ca-talk" class="new"><a href="https://saulo.arisa.com.br/wiki/index.php?title=Discuss%C3%A3o:Godot_Engine:_Meu_Primeiro_Jogo&amp;action=edit&amp;redlink=1" rel="discussion" title="Discussão sobre o conteúdo da página (página inexistente) [alt-shift-t]" accesskey="t"><span>Discussão</span></a></li></ul></div></div><div role="navigation" class="mw-portlet tools-inline" id="p-more" aria-labelledby="p-more-label"><h3 id="p-more-label" lang="pt-BR" dir="ltr">Mais</h3><div class="mw-portlet-body"><ul lang="pt-BR" dir="ltr"><li id="ca-more" class="dropdown-toggle"><span>Mais</span></li><li id="ca-languages" class="dropdown-toggle"><span>Idiomas</span></li></ul></div></div><div role="navigation" class="mw-portlet tools-inline" id="p-views" aria-labelledby="p-views-label"><h3 id="p-views-label" lang="pt-BR" dir="ltr">Ações da página</h3><div class="mw-portlet-body"><ul lang="pt-BR" dir="ltr"><li id="ca-view" class="selected"><a href="https://saulo.arisa.com.br/wiki/index.php/Godot_Engine:_Meu_Primeiro_Jogo"><span>Ler</span></a></li><li id="ca-viewsource"><a href="https://saulo.arisa.com.br/wiki/index.php?title=Godot_Engine:_Meu_Primeiro_Jogo&amp;action=edit" title="Esta página está protegida.
+Você pode, no entanto, visualiar seu código-fonte. [alt-shift-e]" accesskey="e"><span>Ver código-fonte</span></a></li><li id="ca-history"><a href="https://saulo.arisa.com.br/wiki/index.php?title=Godot_Engine:_Meu_Primeiro_Jogo&amp;action=history" title="Edições anteriores desta página. [alt-shift-h]" accesskey="h"><span>Histórico</span></a></li></ul></div></div></div><div class="visualClear"></div><div class="mw-body-content" id="bodyContent"><div id="contentSub"></div><div id="mw-content-text" lang="pt-BR" dir="ltr" class="mw-content-ltr"><div class="mw-parser-output"><p>Afluentes: <a href="https://saulo.arisa.com.br/wiki/index.php/Jogos_Digitais" title="Jogos Digitais">Jogos Digitais</a>, <a href="https://saulo.arisa.com.br/wiki/index.php/Usabilidade,_desenvolvimento_web,_mobile_e_jogos" class="mw-redirect" title="Usabilidade, desenvolvimento web, mobile e jogos">Usabilidade, desenvolvimento web, mobile e jogos</a>
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none"><div class="toctitle" lang="pt-BR" dir="ltr"><h2 id="mw-toc-heading">Índice</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="https://saulo.arisa.com.br/wiki/index.php/Godot_Engine:_Meu_Primeiro_Jogo#Vis.C3.A3o_Geral"><span class="tocnumber">1</span> <span class="toctext">Visão Geral</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="https://saulo.arisa.com.br/wiki/index.php/Godot_Engine:_Meu_Primeiro_Jogo#Configura.C3.A7.C3.A3o_do_Projeto"><span class="tocnumber">2</span> <span class="toctext">Configuração do Projeto</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="https://saulo.arisa.com.br/wiki/index.php/Godot_Engine:_Meu_Primeiro_Jogo#Organiza.C3.A7.C3.A3o_do_Projeto"><span class="tocnumber">2.1</span> <span class="toctext">Organização do Projeto</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-4"><a href="https://saulo.arisa.com.br/wiki/index.php/Godot_Engine:_Meu_Primeiro_Jogo#Player"><span class="tocnumber">3</span> <span class="toctext">Player</span></a>
+<ul>
+<li class="toclevel-2 tocsection-5"><a href="https://saulo.arisa.com.br/wiki/index.php/Godot_Engine:_Meu_Primeiro_Jogo#Node_Structure"><span class="tocnumber">3.1</span> <span class="toctext">Node Structure</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="https://saulo.arisa.com.br/wiki/index.php/Godot_Engine:_Meu_Primeiro_Jogo#Anima.C3.A7.C3.A3o_de_Sprite"><span class="tocnumber">3.2</span> <span class="toctext">Animação de Sprite</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="https://saulo.arisa.com.br/wiki/index.php/Godot_Engine:_Meu_Primeiro_Jogo#Movimentando_o_Player"><span class="tocnumber">3.3</span> <span class="toctext">Movimentando o Player</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="https://saulo.arisa.com.br/wiki/index.php/Godot_Engine:_Meu_Primeiro_Jogo#Escolhendo_as_Anima.C3.A7.C3.B5es"><span class="tocnumber">3.4</span> <span class="toctext">Escolhendo as Animações</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="https://saulo.arisa.com.br/wiki/index.php/Godot_Engine:_Meu_Primeiro_Jogo#Preparando_para_as_Colis.C3.B5es"><span class="tocnumber">3.5</span> <span class="toctext">Preparando para as Colisões</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-10"><a href="https://saulo.arisa.com.br/wiki/index.php/Godot_Engine:_Meu_Primeiro_Jogo#Inimigo_.28Mob.29"><span class="tocnumber">4</span> <span class="toctext">Inimigo (Mob)</span></a>
+<ul>
+<li class="toclevel-2 tocsection-11"><a href="https://saulo.arisa.com.br/wiki/index.php/Godot_Engine:_Meu_Primeiro_Jogo#Script_do_Inimigo"><span class="tocnumber">4.1</span> <span class="toctext">Script do Inimigo</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-12"><a href="https://saulo.arisa.com.br/wiki/index.php/Godot_Engine:_Meu_Primeiro_Jogo#Principal_.28Main.29"><span class="tocnumber">5</span> <span class="toctext">Principal (Main)</span></a>
+<ul>
+<li class="toclevel-2 tocsection-13"><a href="https://saulo.arisa.com.br/wiki/index.php/Godot_Engine:_Meu_Primeiro_Jogo#Cria.C3.A7.C3.A3o_de_Mobs_.28spawning.29"><span class="tocnumber">5.1</span> <span class="toctext">Criação de Mobs (<i>spawning</i>)</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="https://saulo.arisa.com.br/wiki/index.php/Godot_Engine:_Meu_Primeiro_Jogo#Main_Script"><span class="tocnumber">5.2</span> <span class="toctext">Main Script</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-15"><a href="https://saulo.arisa.com.br/wiki/index.php/Godot_Engine:_Meu_Primeiro_Jogo#HUD"><span class="tocnumber">6</span> <span class="toctext">HUD</span></a>
+<ul>
+<li class="toclevel-2 tocsection-16"><a href="https://saulo.arisa.com.br/wiki/index.php/Godot_Engine:_Meu_Primeiro_Jogo#Conectando_o_HUD_ao_Main"><span class="tocnumber">6.1</span> <span class="toctext">Conectando o HUD ao Main</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-17"><a href="https://saulo.arisa.com.br/wiki/index.php/Godot_Engine:_Meu_Primeiro_Jogo#Finalizando"><span class="tocnumber">7</span> <span class="toctext">Finalizando</span></a>
+<ul>
+<li class="toclevel-2 tocsection-18"><a href="https://saulo.arisa.com.br/wiki/index.php/Godot_Engine:_Meu_Primeiro_Jogo#Fundo"><span class="tocnumber">7.1</span> <span class="toctext">Fundo</span></a></li>
+<li class="toclevel-2 tocsection-19"><a href="https://saulo.arisa.com.br/wiki/index.php/Godot_Engine:_Meu_Primeiro_Jogo#Efeitos_Sonoros"><span class="tocnumber">7.2</span> <span class="toctext">Efeitos Sonoros</span></a></li>
+<li class="toclevel-2 tocsection-20"><a href="https://saulo.arisa.com.br/wiki/index.php/Godot_Engine:_Meu_Primeiro_Jogo#Part.C3.ADculas"><span class="tocnumber">7.3</span> <span class="toctext">Partículas</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-21"><a href="https://saulo.arisa.com.br/wiki/index.php/Godot_Engine:_Meu_Primeiro_Jogo#Arquivos_do_Projeto"><span class="tocnumber">8</span> <span class="toctext">Arquivos do Projeto</span></a></li>
+</ul>
+</div>
+
+<h1><span id="Visão_Geral"></span><span class="mw-headline" id="Vis.C3.A3o_Geral">Visão Geral</span></h1>
+<p>Este tutorial é um guia passo a passo para você fazer um primeiro projeto de jogo no Godot. Você irá aprender como o editor da ferramenta trabalha, como estruturar um projeto e como construir um jogo 2D. Assume-se aqui que você já possui conhecimentos de programação.
+</p><p>O jogo que é visto nesse tutorial se chama "Dodge the Creeps!". Seu personagem se move para desviar dos inimigos enquanto for possível. Abaixo é mostrado uma prévia do resultado final:
+</p>
+<center><a href="https://saulo.arisa.com.br/wiki/index.php/Arquivo:Godot_dodge_preview.gif" class="image"><img alt="Godot dodge preview.gif" src="./StartScreen_files/Godot_dodge_preview.gif" decoding="async" width="240" height="378"></a></center>
+<p><br>
+</p>
+<table style="color: #cc9933; background-color: #ffffee; width: 100%; border:solid; border-width: 1px">
+<tbody><tr>
+<td>
+<table style="color: black; background-color: #ffffee; width: 100%;">
+<tbody><tr>
+<td style="width: 30px; vertical-align:top;">
+<p><a href="https://saulo.arisa.com.br/wiki/index.php/Arquivo:Tpl_note.png" class="image"><img alt="Tpl note.png" src="./StartScreen_files/Tpl_note.png" decoding="async" width="22" height="28"></a>
+</p>
+</td>
+<td style="text-align:left; vertical-align:top;">
+<p><b>Porque 2D?</b> Jogos em 3D são muito mais complexos que jogos 2D. É interessante que você tenha uma boa compreensão de jogos em 2D antes que você possa se aventurar no desenvolvimento de jogos em 3D.
+</p>
+</td></tr></tbody></table>
+</td></tr></tbody></table>
+<h1><span id="Configuração_do_Projeto"></span><span class="mw-headline" id="Configura.C3.A7.C3.A3o_do_Projeto">Configuração do Projeto</span></h1>
+<p>Execute seu programa Godot e crie um novo projeto. Depois baixe o arquivo <a rel="nofollow" class="external text" href="https://saulo.arisa.com.br/~saulo/aulas/unisul/games/godot/dodge_assets.zip">dodge_assets.zip</a> que contém as imagens e sons que você irá usar para criar o jogo. Descompacte este arquivo na pasta do seu projeto.
+</p><p>Este jogo usa o modo <i>portrait</i>, então é necessário ajustar o tamanho da janela do jogo. Para isso, vá em
+</p>
+<pre>Projet -&gt; Project Settings -&gt; Display -&gt; Window
+</pre>
+<p>e altere para "Width" 480 e "Height" 720.
+</p>
+<h2><span id="Organização_do_Projeto"></span><span class="mw-headline" id="Organiza.C3.A7.C3.A3o_do_Projeto">Organização do Projeto</span></h2>
+<p>Neste projeto, iremos criar três <i>scenes</i> independentes, <b>Player</b>, <b>Mob</b> e <b>HUD</b>, que irão ser combinadas na <b>scene</b> do jogo chamada <b>Main</b>. Em um projeto maior, pode ser aconselhável criar pastas para guardar as várias <i>scenes</i> e seus <i>scripts</i>, mas não há problemas colocar todos os seus arquivos na pasta principal do projeto em um jogo relativamente pequeno. A pasta principal do projeto é referenciada no Godot como <i>res://</i>, tal como visto na figura abaixo:
+</p>
+<center><a href="https://saulo.arisa.com.br/wiki/index.php/Arquivo:Godot_filesystem_dock.png" class="image"><img alt="Godot filesystem dock.png" src="./StartScreen_files/Godot_filesystem_dock.png" decoding="async" width="243" height="277"></a></center>
+<h1><span class="mw-headline" id="Player">Player</span></h1>
+<p>Vamos iniciar criando um objeto para o jogador, chamado <b>Player</b>. Uma das vantagens de se criar o <b>Player</b> em sua própria <i>scene</i> é que podemos testá-lo separadamente, mesmo antes de criar outras partes do jogo. Podemos fazer isso também para outros elementos ou personagens do jogo.
+</p>
+<h2><span class="mw-headline" id="Node_Structure">Node Structure</span></h2>
+<p>Para começar, clique No botão <b>+</b>, conforme imagem abaixo, para criar um novo <i>Node</i> e adicione um <i>node</i> <b>Area2D</b> na <i>scene</i>, conforme imagem abaixo:
+</p>
+<center><a href="https://saulo.arisa.com.br/wiki/index.php/Arquivo:Godot_add_node.png" class="image"><img alt="Godot add node.png" src="./StartScreen_files/Godot_add_node.png" decoding="async" width="248" height="244"></a></center>
+<p>Com uma <b>Area2D</b> é possível detectar colisão com outros objetos. Altere o nome para <b>Player</b> clicando no nome do <i>node</i>. Este é o <i>node</i> raiz da <i>scene</i>. Podemos adicionar outros <i>nodes</i> à este para dar outras funcionalidades.
+</p><p>Antes de adicionarmos qualquer <i>node</i> filho de <b>Player</b>, precisamos ter certeza de que não iremos mover ou alterar o tamanho acidentalmente clicando no objeto. Para isso, selecione o <i>node</i> e clique no ícone a direita para travar o objeto, conforme figura abaixo.
+</p>
+<center><a href="https://saulo.arisa.com.br/wiki/index.php/Arquivo:Godot_lock_children.png" class="image"><img alt="Godot lock children.png" src="./StartScreen_files/Godot_lock_children.png" decoding="async" width="692" height="90"></a></center>
+<p><br>
+</p>
+<table style="color: #cc9933; background-color: #ffffee; width: 100%; border:solid; border-width: 1px">
+<tbody><tr>
+<td>
+<table style="color: black; background-color: #ffffee; width: 100%;">
+<tbody><tr>
+<td style="width: 30px; vertical-align:top;">
+<p><a href="https://saulo.arisa.com.br/wiki/index.php/Arquivo:Tpl_note.png" class="image"><img alt="Tpl note.png" src="./StartScreen_files/Tpl_note.png" decoding="async" width="22" height="28"></a>
+</p>
+</td>
+<td style="text-align:left; vertical-align:top;">
+<p>Para salvar a <i>scene</i> basta clicar em <b>Scene -&gt; Save</b> ou pressionar <b>Ctrl+S</b> no windows/linux ou <b>Command+S</b> no Mac.
+</p>
+</td></tr></tbody></table>
+</td></tr></tbody></table>
+<h2><span id="Animação_de_Sprite"></span><span class="mw-headline" id="Anima.C3.A7.C3.A3o_de_Sprite">Animação de Sprite</span></h2>
+<p>Clique no <i>node</i> <b>Player</b> e adicione um <i>node</i> <b>AnimatedSprite</b> como filho. O <b>AnimatedSprite</b> irá cuidar da aparência e animação do nosso personagem.
+</p><p>Veja que há um símbolo de atenção próximo do <i>node</i>. Isso porque um <b>AnimatedSprite</b> requer um recurso de <b>SpriteFrames</b>, que é uma lista de animações que podem ser apresentadas.
+</p><p>Para criar uma animação:
+</p>
+<ol><li>procure pela propriedade <b>Frames</b> no <b>Inspector</b>;</li>
+<li>clique <b>&lt;null&gt; -&gt; New SpriteFrames</b>;</li>
+<li>no mesmo local, clique em <b>&lt;SpriteFrames&gt;</b> para abrir o painel para configuração dos <b>SpriteFrames</b>, conforme imagem abaixo.</li></ol>
+<center><a href="https://saulo.arisa.com.br/wiki/index.php/Arquivo:Godot_spriteframes_panel.png" class="image"><img alt="Godot spriteframes panel.png" src="./StartScreen_files/800px-Godot_spriteframes_panel.png" decoding="async" width="800" height="231" srcset="/wiki/images/thumb/6/6d/Godot_spriteframes_panel.png/1200px-Godot_spriteframes_panel.png 1.5x, /wiki/images/6/6d/Godot_spriteframes_panel.png 2x"></a></center>
+<p>Na esquerda está localizada a lista das animações. Siga os procedimentos:
+</p>
+<ol><li>clique na <b>default</b> e mude o seu nome para <b>right</b>;</li>
+<li>clique no botão adicionar para criar uma segunda animação chamada <b>up</b>;</li>
+<li>araste as duas imagens, conforme visto abaixo, para cada animação, nomeadas de <b>playerGrey_up[1/2]</b> e <b>playergrey_walk[1/2]</b> no painel <b>Animation Frames</b>.</li></ol>
+<center><a href="https://saulo.arisa.com.br/wiki/index.php/Arquivo:Godot_spriteframes_panel2.png" class="image"><img alt="Godot spriteframes panel2.png" src="./StartScreen_files/Godot_spriteframes_panel2.png" decoding="async" width="770" height="315"></a></center>
+<p>As imagens do personagem do jogador são um pouco grandes para a janela do jogo, então precisamos diminuir o tamanho delas. Podemos fazer isso nas propriedades, clicando no <i>node</i> <b>AnimatedSprite</b>, <b>Transform</b>, e configurando a <i>Scale</i> para <b>(0.5, 0.5)</b>. Você pode encontrar isso no <b>Inspector</b>, abaixo do cabeçalho <i>Node2D</i>.
+</p>
+<center><a href="https://saulo.arisa.com.br/wiki/index.php/Arquivo:Godot_player_scale.png" class="image"><img alt="Godot player scale.png" src="./StartScreen_files/Godot_player_scale.png" decoding="async" width="208" height="134"></a></center>
+<p>Por fim, adicione um <b>CollisionShape2D</b> como filho de <b>Player</b>. Isso irá determinar as colisões do personagem do jogador, ou a área para colisão. Para este personagem, um <i>node</i> <b>CapsuleShape2D</b> se ajusta melhor. Então próximo ao <b>Shape</b> no <i>Inspector</i>, clique em <b>&lt;null&gt; -&gt; New CapsuleShape2D</b>. Redimensione o desenho para cobrir o sprite:
+</p>
+<center><a href="https://saulo.arisa.com.br/wiki/index.php/Arquivo:Godot_player_coll_shape.png" class="image"><img alt="Godot player coll shape.png" src="./StartScreen_files/Godot_player_coll_shape.png" decoding="async" width="339" height="391"></a></center>
+<p><br>
+</p>
+<table style="color: #cc9933; background-color: #ffffee; width: 100%; border:solid; border-width: 1px">
+<tbody><tr>
+<td>
+<table style="color: black; background-color: #ffffee; width: 100%;">
+<tbody><tr>
+<td style="width: 30px; vertical-align:top;">
+<p><a href="https://saulo.arisa.com.br/wiki/index.php/Arquivo:Tpl_note.png" class="image"><img alt="Tpl note.png" src="./StartScreen_files/Tpl_note.png" decoding="async" width="22" height="28"></a>
+</p>
+</td>
+<td style="text-align:left; vertical-align:top;">
+<p>Não redimensione a figura para muito fora da imagem. Tente deixar o mais próximo do tamanho do <i>sprite</i>.
+</p>
+</td></tr></tbody></table>
+</td></tr></tbody></table>
+<p>Quando você tiver terminado esses passos, sua <i>scene</i> <b>Player</b> irá parecer da seguinte forma:
+</p>
+<center><a href="https://saulo.arisa.com.br/wiki/index.php/Arquivo:Godot_player_scene_nodes.png" class="image"><img alt="Godot player scene nodes.png" src="./StartScreen_files/Godot_player_scene_nodes.png" decoding="async" width="236" height="160"></a></center>
+<h2><span class="mw-headline" id="Movimentando_o_Player">Movimentando o Player</span></h2>
+<p>Agora podemos adicionar algumas funcionalidades por meio de <i>scripts</i>. Clique no node <b>Player</b> e no botão adicionar script à direita:
+</p>
+<center><a href="https://saulo.arisa.com.br/wiki/index.php/Arquivo:Godot_add_script_button.png" class="image"><img alt="Godot add script button.png" src="./StartScreen_files/Godot_add_script_button.png" decoding="async" width="230" height="168"></a></center>
+<p>Na janela de configuração do script, você pode deixar tudo no padrão e apenas clicar em <b>Create</b>:
+</p>
+<center><a href="https://saulo.arisa.com.br/wiki/index.php/Arquivo:Godot_attach_node_window.png" class="image"><img alt="Godot attach node window.png" src="./StartScreen_files/Godot_attach_node_window.png" decoding="async" width="382" height="349"></a></center>
+<p>Para começar, vamos declarar as variáveis necessárias para o nosso objeto:
+</p>
+<div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span><span class="n">extends</span> <span class="n">Area2D</span>
+
+<span class="n">export</span> <span class="p">(</span><span class="nb">int</span><span class="p">)</span> <span class="n">var</span> <span class="n">SPEED</span>  <span class="c1"># how fast the player will move (pixels/sec)</span>
+<span class="n">var</span> <span class="n">screensize</span>  <span class="c1"># size of the game window</span>
+</pre></div>
+<p>A palavra-chave <b>export</b> na primeira variável <b>SPEED</b> nos permite setar seu valor no <b>Inspector</b> (figura abaixo). Esse recurso pode ser bastante útil para valores que você quer ajustar usando a ferramenta gráfica das propriedades. Lá, clique no node <b>Player</b> e configure a propriedade speed para 400.
+</p>
+<center><a href="https://saulo.arisa.com.br/wiki/index.php/Arquivo:Godot_export_variable.png" class="image"><img alt="Godot export variable.png" src="./StartScreen_files/Godot_export_variable.png" decoding="async" width="236" height="185"></a></center>
+<p>A função <b>_ready()</b> é chamadad quando o node entra na <b>scene tree</b>, que é uma boa hora para saber o tamanho da janela do jogo:
+</p>
+<div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span><span class="n">func</span> <span class="n">_ready</span><span class="p">():</span>
+    <span class="n">screensize</span> <span class="o">=</span> <span class="n">get_viewport_rect</span><span class="p">()</span><span class="o">.</span><span class="n">size</span>
+</pre></div>
+<p>Agora usamos a função <b>_process()</b> para definir o que o personagem faz. A função <b>_process()</b> é chamada em cada frame. Dessa forma, podemos utilizá-la para atualizar os elementos do nosso jogo. Para este jogo, iremos fazer o seguinte:
+</p>
+<ul><li>Verificar as entradas;</li>
+<li>Mover o personagem conforme a direção dada;</li>
+<li>Rodar a animação correspondente.</li></ul>
+<p>Primeiro precisamos verificar as entradas, que nesse caso são as teclas que o jogador irá clicar. Para esse jogo teremos 4 direções, ou entradas para verificar. As ações de entrada são definidas no <b>Project Settings</b> no <b>Input Map</b>. Você pode definir eventos customizados e atribuir teclas diferentes, eventos de mouse ou outro tipos de entradas. Para este jogo vamos usar os eventos padrões que já estão configurados para as teclas de setas no teclado.
+</p><p>Você pode detectar uma tecla pressionada usando <b>Input.is_action_pressed()</b>, que retorna <b>true</b> se alguma tecla foi pressionada ou <b>false</b> em caso contrário.
+</p>
+<div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span><span class="n">func</span> <span class="n">_process</span><span class="p">(</span><span class="n">delta</span><span class="p">):</span>
+    <span class="n">var</span> <span class="n">velocity</span> <span class="o">=</span> <span class="n">Vector2</span><span class="p">()</span> <span class="c1"># the player's movement vector</span>
+    <span class="k">if</span> <span class="n">Input</span><span class="o">.</span><span class="n">is_action_pressed</span><span class="p">(</span><span class="s2">"ui_right"</span><span class="p">):</span>
+        <span class="n">velocity</span><span class="o">.</span><span class="n">x</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="n">Input</span><span class="o">.</span><span class="n">is_action_pressed</span><span class="p">(</span><span class="s2">"ui_left"</span><span class="p">):</span>
+        <span class="n">velocity</span><span class="o">.</span><span class="n">x</span> <span class="o">-=</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="n">Input</span><span class="o">.</span><span class="n">is_action_pressed</span><span class="p">(</span><span class="s2">"ui_down"</span><span class="p">):</span>
+        <span class="n">velocity</span><span class="o">.</span><span class="n">y</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="n">Input</span><span class="o">.</span><span class="n">is_action_pressed</span><span class="p">(</span><span class="s2">"ui_up"</span><span class="p">):</span>
+        <span class="n">velocity</span><span class="o">.</span><span class="n">y</span> <span class="o">-=</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="n">velocity</span><span class="o">.</span><span class="n">length</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">velocity</span> <span class="o">=</span> <span class="n">velocity</span><span class="o">.</span><span class="n">normalized</span><span class="p">()</span> <span class="o">*</span> <span class="n">SPEED</span>
+        <span class="err">$</span><span class="n">AnimatedSprite</span><span class="o">.</span><span class="n">play</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="err">$</span><span class="n">AnimatedSprite</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+</pre></div>
+<p>Na função acima verificamos cada entrada e adicionamos ou subtraímos da variável <b>velocity</b> para obter a direção total. Por exemplo, se você segurar a seta direita e a seta para baixo ao mesmo tempo, o resultado em <b>velocity</b> será um vetor (1, 1). Nesse caso, quando fazemos um movimento horizontal e um vertical ao mesmo tempo, o personagem ira se mover mais rápido do que se apenas se movesse horizontalmente ou só verticalmente.
+</p><p>Podemos prevenir isso usando a normalização da velocidade, ou seja, configurar o comprimento do nosso vetor para <b>1</b> e multiplicar pela velocidade desejada. Isso significa que o movimento diagonal não será mais rápido do que deveria ser.
+</p><p><br>
+</p>
+<table style="color: #1abc9c; background-color: #dbfaf4; width: 100%; border:solid; border-width: 1px">
+<tbody><tr>
+<td>
+<table style="color: black; background-color: #dbfaf4; width: 100%;">
+<tbody><tr>
+<td style="width: 30px; vertical-align:top;">
+<p><a href="https://saulo.arisa.com.br/wiki/index.php/Arquivo:Tplnote_Bulbgraph.png" class="image"><img alt="Tplnote Bulbgraph.png" src="./StartScreen_files/Tplnote_Bulbgraph.png" decoding="async" width="23" height="28"></a>
+</p>
+</td>
+<td style="text-align:left; vertical-align:top;">
+<p>Se você nunca usou vetores matemáticos antes, ou precisa refrescar sua memória, você pode ver uma explicação sobre o uso de vetores no Godot em <a rel="nofollow" class="external text" href="http://docs.godotengine.org/en/3.0/tutorials/math/vector_math.html#doc-vector-math">Vector math</a>. É sempre bom ter um certo conhecimento sobre isso, mas não é necessário para o resto desse tutorial.
+</p>
+</td></tr></tbody></table>
+</td></tr></tbody></table>
+<p>Também verificamos se o jogador está se movendo ou não para que possamos iniciar ou interromper a animação do <b>AnimatedSprite</b>.
+</p><p><br>
+</p>
+<table style="color: #1abc9c; background-color: #dbfaf4; width: 100%; border:solid; border-width: 1px">
+<tbody><tr>
+<td>
+<table style="color: black; background-color: #dbfaf4; width: 100%;">
+<tbody><tr>
+<td style="width: 30px; vertical-align:top;">
+<p><a href="https://saulo.arisa.com.br/wiki/index.php/Arquivo:Tplnote_Bulbgraph.png" class="image"><img alt="Tplnote Bulbgraph.png" src="./StartScreen_files/Tplnote_Bulbgraph.png" decoding="async" width="23" height="28"></a>
+</p>
+</td>
+<td style="text-align:left; vertical-align:top;">
+<p>O sinal <b>$</b> retorna o node do caminho relativo desse node, ou retorna <b>null</b> se o node não foi encontrado. Sendo que o node <b>AnimatedSprite</b> é filho do corrente node, nos podemos usar apenas <b>$AnimatedSprite</b>.
+</p><p>Na verdade, o sinal <b>$</b> é um atalho para <b>get_node()</b>. Então, o código <b>$AnimatedSprite.play()</b> é o mesmo que <b>get_node("AnimatedSprite").play().</b>
+</p>
+</td></tr></tbody></table>
+</td></tr></tbody></table>
+<p>Agora que temos o movimento direcional do personagem do jogador, podemos atualizar a posição do <b>Player</b> e usar a função <b>clamp()</b> para prevenir do personagem sair da tela:
+</p>
+<div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span><span class="n">position</span> <span class="o">+=</span> <span class="n">velocity</span> <span class="o">*</span> <span class="n">delta</span>
+<span class="n">position</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">clamp</span><span class="p">(</span><span class="n">position</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">screensize</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+<span class="n">position</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">clamp</span><span class="p">(</span><span class="n">position</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">screensize</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+<p><br>
+</p>
+<table style="color: #1abc9c; background-color: #dbfaf4; width: 100%; border:solid; border-width: 1px">
+<tbody><tr>
+<td>
+<table style="color: black; background-color: #dbfaf4; width: 100%;">
+<tbody><tr>
+<td style="width: 30px; vertical-align:top;">
+<p><a href="https://saulo.arisa.com.br/wiki/index.php/Arquivo:Tplnote_Bulbgraph.png" class="image"><img alt="Tplnote Bulbgraph.png" src="./StartScreen_files/Tplnote_Bulbgraph.png" decoding="async" width="23" height="28"></a>
+</p>
+</td>
+<td style="text-align:left; vertical-align:top;">
+<p>Fazer um <b>clamping</b> em um valor, significa restringi-lo à um dado alcance (<i>range</i>).
+</p>
+</td></tr></tbody></table>
+</td></tr></tbody></table>
+<p>Depois disso, clique em <b>Play Scene</b>) ou pressione a tecla <b>F6</b> e verifique que você consegue mover o personagem na tela para todas as direções.
+</p>
+<table style="color: #cc3333; background-color: #f0e7e7; width: 100%; border:solid; border-width: 1px">
+<tbody><tr>
+<td>
+<table style="color: black; background-color: #f0e7e7; width: 100%; border-width: 0px">
+<tbody><tr>
+<td style="width: 30px; vertical-align:top;">
+<p><a href="https://saulo.arisa.com.br/wiki/index.php/Arquivo:Tpl_warning.png" class="image"><img alt="Tpl warning.png" src="./StartScreen_files/Tpl_warning.png" decoding="async" width="24" height="24"></a>
+</p>
+</td>
+<td style="text-align:left; vertical-align:top;">
+<p>Se você encontrar algum erro no painel <b>Debugger</b> que se refere à uma <b>null instance</b>, isso pode significar que você chamou errado o nome do node. O nome do node é <i>case-sensitive</i> e <b>$NodeName</b> ou <b>get_node("NodeName")</b> precisa fechar com o nome que você vê na <b>scene tree</b>.
+</p>
+</td></tr></tbody></table>
+</td></tr></tbody></table>
+<h2><span id="Escolhendo_as_Animações"></span><span class="mw-headline" id="Escolhendo_as_Anima.C3.A7.C3.B5es">Escolhendo as Animações</span></h2>
+<p>Agora que nosso personagem pode se movimentar, precisamos mudar a animação no <b>AnimatedSprite</b> para corresponder à direção. Veja que temos a animação <b>right</b> que pode ser espelhada horizontalmente usando a propriedade <b>flip_h</b> para o movimento para a esquerda e a animação <b>up</b> pode ser espelhada verticalmente usando o <b>flip_v</b> para o movimento para baixo. Vamos adicionar o seguinte código na função <b>_process()</b>:
+</p>
+<div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span><span class="k">if</span> <span class="n">velocity</span><span class="o">.</span><span class="n">x</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="err">$</span><span class="n">AnimatedSprite</span><span class="o">.</span><span class="n">animation</span> <span class="o">=</span> <span class="s2">"right"</span>
+    <span class="err">$</span><span class="n">AnimatedSprite</span><span class="o">.</span><span class="n">flip_v</span> <span class="o">=</span> <span class="n">false</span>
+    <span class="err">$</span><span class="n">AnimatedSprite</span><span class="o">.</span><span class="n">flip_h</span> <span class="o">=</span> <span class="n">velocity</span><span class="o">.</span><span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span>
+<span class="k">if</span> <span class="n">velocity</span><span class="o">.</span><span class="n">y</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="err">$</span><span class="n">AnimatedSprite</span><span class="o">.</span><span class="n">animation</span> <span class="o">=</span> <span class="s2">"up"</span>
+    <span class="err">$</span><span class="n">AnimatedSprite</span><span class="o">.</span><span class="n">flip_v</span> <span class="o">=</span> <span class="n">velocity</span><span class="o">.</span><span class="n">y</span> <span class="o">&gt;</span> <span class="mi">0</span>
+</pre></div>
+<p>Ao rodar a cena novamente, verificamos que a animação está correspondente com cada direção. Depois de conferido que os movimentos estão funcionando corretamente, adicione a seguinte linha abaixo função <b>_ready()</b>. Isso vai garantir que o personagem vai estar invisível quando o jogo começar.
+</p>
+<div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span><span class="n">hide</span><span class="p">()</span>
+</pre></div>
+<h2><span id="Preparando_para_as_Colisões"></span><span class="mw-headline" id="Preparando_para_as_Colis.C3.B5es">Preparando para as Colisões</span></h2>
+<p>Queremos que o nosso personagem detecte quando ele se choca com os inimigos, mas não temos inimigos ainda! Isso não importa porque iremos utilizar a funcionalidade de <b>signal</b> do Godot para fazer isso funcionar.
+</p><p>Adicione a linha abaixo no início do nosso <i>script</i>, depois de <b>extends Area2d</b>:
+</p>
+<div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span><span class="n">signal</span> <span class="n">hit</span>
+</pre></div>
+<p>Isso define um sinal customizado chamado <b>hit</b> que nosso personagem vai emitir quando colidir algum inimigo. Iremos usar o <b>Area2D</b> para detectar a colisão.
+</p><p>Selecione o <i>node</i> <b>Player</b> e clique na aba <b>Node</b>, ao lado da aba <b>Inspector</b>, para ver a lista de sinais que o nosso personagem pode emitir:
+</p>
+<center><a href="https://saulo.arisa.com.br/wiki/index.php/Arquivo:Godot_player_signals.png" class="image"><img alt="Godot player signals.png" src="./StartScreen_files/Godot_player_signals.png" decoding="async" width="240" height="488"></a></center>
+<p>Observe ali que o nosso sinal customizado <b>hit</b> está aparecendo também! Como nossos inimigos serão nodes do tipo <b>RigidBody2D</b>, usaremos a função <b>body_entered(Object body)</b> que será chamado quando o corpo colidir com o nosso personagem.
+</p><p>Clique em <b>Connect..</b> e então <b>Connect</b> novamente na janela <b>Connecting Signal</b>. Não precisamos alterar qualquer configuração, o Godot irá criar automaticamente a função chamada <b>_on_Player_body_entered</b> no <i>script</i> do nosso personagem.
+</p><p><br>
+</p>
+<table style="color: #1abc9c; background-color: #dbfaf4; width: 100%; border:solid; border-width: 1px">
+<tbody><tr>
+<td>
+<table style="color: black; background-color: #dbfaf4; width: 100%;">
+<tbody><tr>
+<td style="width: 30px; vertical-align:top;">
+<p><a href="https://saulo.arisa.com.br/wiki/index.php/Arquivo:Tplnote_Bulbgraph.png" class="image"><img alt="Tplnote Bulbgraph.png" src="./StartScreen_files/Tplnote_Bulbgraph.png" decoding="async" width="23" height="28"></a>
+</p>
+</td>
+<td style="text-align:left; vertical-align:top;">
+<p>Ao conectar um sinal, em vez de fazer com que o Godot crie uma função pra você, você pode fornecer também o nome de uma função já existente, da qual deseja vincular o sinal
+</p>
+</td></tr></tbody></table>
+</td></tr></tbody></table>
+<p>Adicione o seguinte código na função criada:
+</p>
+<div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span><span class="n">func</span> <span class="n">_on_Player_body_entered</span><span class="p">(</span> <span class="n">body</span> <span class="p">):</span>
+    <span class="n">hide</span><span class="p">()</span> <span class="c1"># Player disappears after being hit</span>
+    <span class="n">emit_signal</span><span class="p">(</span><span class="s2">"hit"</span><span class="p">)</span>
+    <span class="err">$</span><span class="n">CollisionShape2D</span><span class="o">.</span><span class="n">disabled</span> <span class="o">=</span> <span class="n">true</span>
+</pre></div>
+<p><br>
+</p>
+<table style="color: #cc9933; background-color: #ffffee; width: 100%; border:solid; border-width: 1px">
+<tbody><tr>
+<td>
+<table style="color: black; background-color: #ffffee; width: 100%;">
+<tbody><tr>
+<td style="width: 30px; vertical-align:top;">
+<p><a href="https://saulo.arisa.com.br/wiki/index.php/Arquivo:Tpl_note.png" class="image"><img alt="Tpl note.png" src="./StartScreen_files/Tpl_note.png" decoding="async" width="22" height="28"></a>
+</p>
+</td>
+<td style="text-align:left; vertical-align:top;">
+<p>Desabilitar a área de colisão significa que as colisões não serão mais detectadas. Assim, garantimos que o gatilho do signa <b>hit</b> não será acionado.
+</p>
+</td></tr></tbody></table>
+</td></tr></tbody></table>
+<p>Agora vamos adicionar uma função que será chamada para reinicializar o personagem quando um novo jogo inicia.
+</p>
+<div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span><span class="n">func</span> <span class="n">start</span><span class="p">(</span><span class="n">pos</span><span class="p">):</span>
+    <span class="n">position</span> <span class="o">=</span> <span class="n">pos</span>
+    <span class="n">show</span><span class="p">()</span>
+    <span class="err">$</span><span class="n">CollisionShape2D</span><span class="o">.</span><span class="n">disabled</span> <span class="o">=</span> <span class="n">false</span>
+</pre></div>
+<h1><span id="Inimigo_(Mob)"></span><span class="mw-headline" id="Inimigo_.28Mob.29">Inimigo (Mob)</span></h1>
+<p>Para criar a <i>scene'</i> do nosso inimigo, clique em <b>Scene -&gt; New Scene</b> e renomeie para Mob.
+</p><p>A <i>scene</i> <b>Mob</b> irá usar os seguintes <i>nodes</i>:
+</p>
+<ul><li><a rel="nofollow" class="external text" href="http://docs.godotengine.org/en/3.0/classes/class_rigidbody2d.html#class-rigidbody2d">RigidBody2D</a> (chamado Mob)
+<ul><li><a rel="nofollow" class="external text" href="http://docs.godotengine.org/en/3.0/classes/class_animatedsprite.html#class-animatedsprite">AnimatedSprite</a></li>
+<li><a rel="nofollow" class="external text" href="http://docs.godotengine.org/en/3.0/classes/class_collisionshape2d.html#class-collisionshape2d">CollisionShape2D</a></li>
+<li><a rel="nofollow" class="external text" href="http://docs.godotengine.org/en/3.0/classes/class_visibilitynotifier2d.html#class-visibilitynotifier2d">VisibilityNotifier2D</a> (chamada Visibility)</li></ul></li></ul>
+<p>Não se esqueça de configurar o <b>Mob</b> para não poder ser selecionado, assim como fizemos na <i>scene</i> <b>Player</b>.
+</p><p>Nas propriedades do <a rel="nofollow" class="external text" href="http://docs.godotengine.org/en/3.0/classes/class_rigidbody2d.html#class-rigidbody2d">RigidBody2D</a>, configure a <b>Gravity Scale</b> para <b>0</b>. Assim o mob não vai ficar caindo. Também, abaixo da sessão <b>PhysicsBody2D</b>, clique na propriedade <b>Mask</b> e retire a seleção da primeira caixa. Isso irá garantir que os mobs não irão colidir uns com os outros.
+</p>
+<center><a href="https://saulo.arisa.com.br/wiki/index.php/Arquivo:Godot_set_collision_mask.png" class="image"><img alt="Godot set collision mask.png" src="./StartScreen_files/Godot_set_collision_mask.png" decoding="async" width="336" height="183"></a></center>
+<p>Configure o <a rel="nofollow" class="external text" href="http://docs.godotengine.org/en/3.0/classes/class_animatedsprite.html#class-animatedsprite">AnimatedSprite</a> tal como foi feito no <b>Player</b>. Veja que agora temos três animações: <b>fly</b>, <b>swim</b> e <b>walk</b>. Configure a propriedade <b>Playing</b> no <b>Inspector</b> para <b>On</b> e ajuste a <b>Speed (FPS)</b> tal como é visto na imagem abaixo. Iremos selecionar uma dessas animações randomicamente para que nossos mobs tenham uma certa variedade.
+</p>
+<center><a href="https://saulo.arisa.com.br/wiki/index.php/Arquivo:Godot_mob_animations.gif" class="image"><img alt="Godot mob animations.gif" src="./StartScreen_files/Godot_mob_animations.gif" decoding="async" width="844" height="342"></a></center>
+<p>O <b>fly'<i> deve ser setado para </i></b><i>3 FPS</i>, e os outros dois para <b>4 FPS</b>.
+</p><p>Assim como as imagens do <b>Player</b>, as imagens dos mobs precisam ser diminuídas. Para isso, configure a propriedade <b>Scale</b> do <b>AnimatedSprite</b> para <b>(0.75, 0.75)</b>.
+</p><p>Em tempo, tal como na <i>scene</i> <b>Player'<i>, adicione uma </i></b><i>CapsuleShape2D<b> para as colisões. Para alinhar a figura com a imagem, será necessário alterar a propriedade </b>Rotation Degrees</i> para <b>90</b> sob o <b>Node2D</b>.
+</p>
+<h2><span class="mw-headline" id="Script_do_Inimigo">Script do Inimigo</span></h2>
+<p>Para começar, adicione um <i>script</i> para o <b>Mob</b> e coloque nele as seguintes variáveis:
+</p>
+<div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span><span class="n">extends</span> <span class="n">RigidBody2D</span>
+
+<span class="n">export</span> <span class="p">(</span><span class="nb">int</span><span class="p">)</span> <span class="n">var</span> <span class="n">MIN_SPEED</span> <span class="c1"># minimum speed range</span>
+<span class="n">export</span> <span class="p">(</span><span class="nb">int</span><span class="p">)</span> <span class="n">var</span> <span class="n">MAX_SPEED</span> <span class="c1"># maximum speed range</span>
+<span class="n">var</span> <span class="n">mob_types</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"walk"</span><span class="p">,</span> <span class="s2">"swim"</span><span class="p">,</span> <span class="s2">"fly"</span><span class="p">]</span>
+</pre></div>
+<p>Iremos colocar um valor aleatório entre <b>MIN_SPEED</b> e <b>MAX_SPEED</b> para a velocidade que o mob se movimenta. Seria chato se todos eles se movimentassem com a mesma velocidade. No <b>Inspector</b>, altere essas variáveis para 150 e 250. Também teremos um vetor contendo os nomes das 3 animações que serão selecionadas aleatoriamente para cada mob.
+</p><p>Vamos arrumar nosso <i>script</i> <b>_ready()</b> para escolher aleatoriamente uma das 3 animações.
+</p>
+<div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span><span class="n">func</span> <span class="n">_ready</span><span class="p">():</span>
+    <span class="err">$</span><span class="n">AnimatedSprite</span><span class="o">.</span><span class="n">animation</span> <span class="o">=</span> <span class="n">mob_types</span><span class="p">[</span><span class="n">randi</span><span class="p">()</span> <span class="o">%</span> <span class="n">mob_types</span><span class="o">.</span><span class="n">size</span><span class="p">()]</span>
+</pre></div>
+<p><br>
+</p>
+<table style="color: #cc9933; background-color: #ffffee; width: 100%; border:solid; border-width: 1px">
+<tbody><tr>
+<td>
+<table style="color: black; background-color: #ffffee; width: 100%;">
+<tbody><tr>
+<td style="width: 30px; vertical-align:top;">
+<p><a href="https://saulo.arisa.com.br/wiki/index.php/Arquivo:Tpl_note.png" class="image"><img alt="Tpl note.png" src="./StartScreen_files/Tpl_note.png" decoding="async" width="22" height="28"></a>
+</p>
+</td>
+<td style="text-align:left; vertical-align:top;">
+<p>você precisa usar a função <b>randomize()</b> se quiser que a sequência de números aleatórios seja diferente a cada vez que a <i>scene</i> for executada. Iremos colocar o randomize() na nossa <i>scene</i> <b>Main</b>. Para retornar um número inteiro aleatório entre <b>0</b> e <b>n-1</b>, usaremos <b>randi() %n</b>.
+</p>
+</td></tr></tbody></table>
+</td></tr></tbody></table>
+<p>Agora iremos fazer com que os mobs deletem a si mesmos quando eles saem da janela. Para isso, conecte o <i>signal</i> <b>screen_exited()</b> do node <b>VisibilityNotifier2D</b> e adicione o seguinte código:
+</p>
+<div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span><span class="n">func</span> <span class="n">_on_Visibility_screen_exited</span><span class="p">():</span>
+    <span class="n">queue_free</span><span class="p">()</span>
+</pre></div>
+<p>Com isso completamos a <i>scene</i> Mob.
+</p>
+<h1><span id="Principal_(Main)"></span><span class="mw-headline" id="Principal_.28Main.29">Principal (Main)</span></h1>
+<p>Agora chegou o momento de juntar tudo. Vamos criar uma nova <i>scene</i> ea dicionar um <b>Node</b> chamado <b>Main</b>.
+</p><p>Clique no botão <b>Instance</b> e selecione sua <i>scene</i> já salva chamada <b>Player.tscn</b>.
+</p>
+<center><a href="https://saulo.arisa.com.br/wiki/index.php/Arquivo:Godot_instance_scene.png" class="image"><img alt="Godot instance scene.png" src="./StartScreen_files/Godot_instance_scene.png" decoding="async" width="241" height="105"></a></center>
+<p><br>
+</p>
+<table style="color: #cc9933; background-color: #ffffee; width: 100%; border:solid; border-width: 1px">
+<tbody><tr>
+<td>
+<table style="color: black; background-color: #ffffee; width: 100%;">
+<tbody><tr>
+<td style="width: 30px; vertical-align:top;">
+<p><a href="https://saulo.arisa.com.br/wiki/index.php/Arquivo:Tpl_note.png" class="image"><img alt="Tpl note.png" src="./StartScreen_files/Tpl_note.png" decoding="async" width="22" height="28"></a>
+</p>
+</td>
+<td style="text-align:left; vertical-align:top;">
+<p>Para aprender um pouco mais sobre instanciação, veja <a rel="nofollow" class="external text" href="http://docs.godotengine.org/en/3.0/getting_started/step_by_step/instancing.html#doc-instancing">Instancing</a>
+</p>
+</td></tr></tbody></table>
+</td></tr></tbody></table>
+<p>Agora adicione os seguintes <i>nodes</i> como filhos de <b>Main</b>, e altere o nome deles em conformidade com o que é mostrado abaixo:
+</p>
+<ul><li><a rel="nofollow" class="external text" href="http://docs.godotengine.org/en/3.0/classes/class_timer.html#class-timer">Timer</a> (MobTimer): para controlar a criação de mobs;</li>
+<li><a rel="nofollow" class="external text" href="http://docs.godotengine.org/en/3.0/classes/class_timer.html#class-timer">Timer</a> (ScoreTime): para incrementar a pontuação a cada segundo;</li>
+<li><a rel="nofollow" class="external text" href="http://docs.godotengine.org/en/3.0/classes/class_timer.html#class-timer">Timer</a> (StartTimer): para dar um tempinho depois do início;</li>
+<li><a rel="nofollow" class="external text" href="http://docs.godotengine.org/en/3.0/classes/class_position2d.html#class-position2d">Position2D</a> (StartPosition): para indicar a posição inicial do personagem do jogador.</li></ul>
+<p>Depois configure a propriedade <b>Wait Time</b> de cada um dos <i>nodes</i> <b>Timer</b> conforme as especificações a seguir:
+</p>
+<ul><li>MobTimer: 0.5;</li>
+<li>ScoreTimer: 1;</li>
+<li>StartTimer: 2.</li></ul>
+<p>Ainda, altere a propriedade <b>One Shot</b> do <b>StartTimer</b> para <b>On</b> e altere a <b>Position</b> do <i>node</i> <b>StartPosition</b> para <b>(240, 450)</b>.
+</p>
+<h2><span id="Criação_de_Mobs_(spawning)"></span><span class="mw-headline" id="Cria.C3.A7.C3.A3o_de_Mobs_.28spawning.29">Criação de Mobs (<i>spawning</i>)</span></h2>
+<p>O <i>node</i> <b>Main</b> irá criar novos mobs que queremos que apareça em uma posição aleatória fora da tela. Adicione um <i>node</i> <a rel="nofollow" class="external text" href="http://docs.godotengine.org/en/3.0/classes/class_path2d.html#class-path2d">Path2D</a> chamado <b>MobPath</b> como filho de <b>Main</b>. Quando você selecionar o <b>Path2D</b>, verá que aparecem alguns novos botões em cima do editor:
+</p>
+<center><a href="https://saulo.arisa.com.br/wiki/index.php/Arquivo:Godot_path2d_buttons.png" class="image"><img alt="Godot path2d buttons.png" src="./StartScreen_files/Godot_path2d_buttons.png" decoding="async" width="288" height="72"></a></center>
+<p>Selecione o botão do meio (<b>Add Point</b> e desenhe o caminho clicando nos cantos da cena. Certifique-se de que o <b>Snap to Grid</b> está selecionado. Essa opção pode ser encontrada sob o botão <b>Snapping options</b> à esquerda do botão <b>Lock</b>, aparecendo como uma série de três pontos verticais.
+</p>
+<center><a href="https://saulo.arisa.com.br/wiki/index.php/Arquivo:Godot_draw_path2d.gif" class="image"><img alt="Godot draw path2d.gif" src="./StartScreen_files/Godot_draw_path2d.gif" decoding="async" width="406" height="630"></a></center>
+<p><br>
+</p>
+<table style="color: #cc9933; background-color: #ffffee; width: 100%; border:solid; border-width: 1px">
+<tbody><tr>
+<td>
+<table style="color: black; background-color: #ffffee; width: 100%;">
+<tbody><tr>
+<td style="width: 30px; vertical-align:top;">
+<p><a href="https://saulo.arisa.com.br/wiki/index.php/Arquivo:Tpl_note.png" class="image"><img alt="Tpl note.png" src="./StartScreen_files/Tpl_note.png" decoding="async" width="22" height="28"></a>
+</p>
+</td>
+<td style="text-align:left; vertical-align:top;">
+<p>Desenhe o caminho no sentido horário, ou seus mobs irão aparecer indo para fora e não para dentro!
+</p>
+</td></tr></tbody></table>
+</td></tr></tbody></table>
+<p>Depois de colocar o ponto <b>4</b> na imagem, clique no botão <b>Close Curve</b> e as linhas irão se completar.
+</p><p>Agora que o <i>path</i> está definido, adicione um <i>node</i> <a rel="nofollow" class="external text" href="http://docs.godotengine.org/en/3.0/classes/class_pathfollow2d.html#class-pathfollow2d">PathFollow2D</a> como filho de <b>MobPath</b> e o renomeie para <b>MobSpawnLocation</b>. Este <i>node</i> irá rotoacionar automaticamente e seguir o caminho conforme ele se move. Isso serve para que possamos usá-lo para selecionar uma posição e direção aleatórias ao longo do caminho.
+</p>
+<h2><span class="mw-headline" id="Main_Script">Main Script</span></h2>
+<p>Adicione um <i>script</i> para a <i>scene</i> <b>Main</b>. No início do <i>script</i> vamos usar um <b>export (PackedScene)</b> para nos permitir escolher a <i>scene</i> <b>Mob</b> que queremos instanciar.
+</p>
+<div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span><span class="n">extends</span> <span class="n">Node</span>
+
+<span class="n">export</span> <span class="p">(</span><span class="n">PackedScene</span><span class="p">)</span> <span class="n">var</span> <span class="n">Mob</span>
+<span class="n">var</span> <span class="n">score</span>
+
+<span class="n">func</span> <span class="n">_ready</span><span class="p">():</span>
+    <span class="n">randomize</span><span class="p">()</span>
+</pre></div>
+<p>Arraste o <b>Mob.tscn</b> do painel <b>FileSystem</b> para a propriedade <b>Mob</b> sobre o <b>Script Variables</b> do <i>node</i> <b>Main</b>.
+</p><p>Depois, ainda no node <b>Main</b>, clique em <b>Player</b> e conecte o signal <b>hit</b> e dê o nome da função de <b>game_over</b>. Adicione o código abaixo nessa nova função:
+</p><p>Next, click on the Player and connect the hit signal. We want to make a new function named game_over, which will handle what needs to happen when a game ends. Type “game_over” in the “Method In Node” box at the bottom of the “Connecting Signal” window. Add the following code, as well as a new_game function to set everything up for a new game:
+</p>
+<div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span><span class="n">func</span> <span class="n">game_over</span><span class="p">():</span>
+    <span class="err">$</span><span class="n">ScoreTimer</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+    <span class="err">$</span><span class="n">MobTimer</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+</pre></div>
+<p>Adicione também uma função chamada <b>new_game</b>:
+</p>
+<div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span><span class="n">func</span> <span class="n">new_game</span><span class="p">():</span>
+    <span class="n">score</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="err">$</span><span class="n">Player</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="err">$</span><span class="n">StartPosition</span><span class="o">.</span><span class="n">position</span><span class="p">)</span>
+    <span class="err">$</span><span class="n">StartTimer</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+</pre></div>
+<p>Agora conecte o <i>signal</i> <b>timeout()</b> de cada um dos nodes Timer. O <b>StartTimer</b> irá iniciar os outros dois timers. <b>ScoreTimer</b> irá incrementar a pontuação em 1.
+</p>
+<div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span><span class="n">func</span> <span class="n">_on_StartTimer_timeout</span><span class="p">():</span>
+    <span class="err">$</span><span class="n">MobTimer</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+    <span class="err">$</span><span class="n">ScoreTimer</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+<span class="n">func</span> <span class="n">_on_ScoreTimer_timeout</span><span class="p">():</span>
+    <span class="n">score</span> <span class="o">+=</span> <span class="mi">1</span>
+</pre></div>
+<p>Na função <b>_on_MobTimer_timeout()</b> iremos criar uma instancia mob colocando ela em uma posição inicial aleatória por meio do <b>Path2D</b> e configurando a movimentação do mob.
+</p><p>O node <b>PathFollow2D</b> irá automaticamente rotacionar o mob para seguir um caminho específico.
+</p><p>Veja que a nova instância precisa ser adicionada à scene usando um <b>add_child()</b>.
+</p>
+<div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span><span class="n">func</span> <span class="n">_on_MobTimer_timeout</span><span class="p">():</span>
+    <span class="c1"># choose a random location on Path2D</span>
+    <span class="err">$</span><span class="n">MobPath</span><span class="o">/</span><span class="n">MobSpawnLocation</span><span class="o">.</span><span class="n">set_offset</span><span class="p">(</span><span class="n">randi</span><span class="p">())</span>
+    <span class="c1"># create a Mob instance and add it to the scene</span>
+    <span class="n">var</span> <span class="n">mob</span> <span class="o">=</span> <span class="n">Mob</span><span class="o">.</span><span class="n">instance</span><span class="p">()</span>
+    <span class="n">add_child</span><span class="p">(</span><span class="n">mob</span><span class="p">)</span>
+    <span class="c1"># set the mob's direction perpendicular to the path direction</span>
+    <span class="n">var</span> <span class="n">direction</span> <span class="o">=</span> <span class="err">$</span><span class="n">MobPath</span><span class="o">/</span><span class="n">MobSpawnLocation</span><span class="o">.</span><span class="n">rotation</span> <span class="o">+</span> <span class="n">PI</span><span class="o">/</span><span class="mi">2</span>
+    <span class="c1"># set the mob's position to a random location</span>
+    <span class="n">mob</span><span class="o">.</span><span class="n">position</span> <span class="o">=</span> <span class="err">$</span><span class="n">MobPath</span><span class="o">/</span><span class="n">MobSpawnLocation</span><span class="o">.</span><span class="n">position</span>
+    <span class="c1"># add some randomness to the direction</span>
+    <span class="n">direction</span> <span class="o">+=</span> <span class="n">rand_range</span><span class="p">(</span><span class="o">-</span><span class="n">PI</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span> <span class="n">PI</span><span class="o">/</span><span class="mi">4</span><span class="p">)</span>
+    <span class="n">mob</span><span class="o">.</span><span class="n">rotation</span> <span class="o">=</span> <span class="n">direction</span>
+    <span class="c1"># choose the velocity</span>
+    <span class="n">var</span> <span class="n">rand_x</span> <span class="o">=</span> <span class="n">rand_range</span><span class="p">(</span><span class="n">mob</span><span class="o">.</span><span class="n">MIN_SPEED</span><span class="p">,</span> <span class="n">mob</span><span class="o">.</span><span class="n">MAX_SPEED</span><span class="p">)</span>
+    <span class="n">mob</span><span class="o">.</span><span class="n">set_linear_velocity</span><span class="p">(</span><span class="n">Vector2</span><span class="p">(</span><span class="n">rand_x</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">rotated</span><span class="p">(</span><span class="n">direction</span><span class="p">))</span>
+</pre></div>
+<p><br>
+</p>
+<table style="color: #cc9933; background-color: #ffffee; width: 100%; border:solid; border-width: 1px">
+<tbody><tr>
+<td>
+<table style="color: black; background-color: #ffffee; width: 100%;">
+<tbody><tr>
+<td style="width: 30px; vertical-align:top;">
+<p><a href="https://saulo.arisa.com.br/wiki/index.php/Arquivo:Tpl_note.png" class="image"><img alt="Tpl note.png" src="./StartScreen_files/Tpl_note.png" decoding="async" width="22" height="28"></a>
+</p>
+</td>
+<td style="text-align:left; vertical-align:top;">
+<p>Nas funções que trabalham com ângulo, o GDScript usa radianos e não graus. Se você se sentir mais confortável para trabalhar com graus, será necessário utilizar as funções <b>deg2rad()</b> e <b>ra2deg()</b> para fazer a conversão entre os dois.
+</p>
+</td></tr></tbody></table>
+</td></tr></tbody></table>
+<h1><span class="mw-headline" id="HUD">HUD</span></h1>
+<p>A HUD (do inglês: <i>heads-up display</i> - tela de alerta) é a sigla para representação dos objetos do jogo, tais como: vida, magia, pontos de experiência (XP), etc.
+</p><p>Como parte final para nosso jogo, vamos criar uma HUD. Nela teremos informações como pontuação, mensagem <b>Game Over</b> e um botão para reinicializar o jogo. A HUD será nossa interface do usuário (UI - <i>User Interface</i>).
+</p><p>Para isso, crie uma nova scene e adicione um node <a rel="nofollow" class="external text" href="http://docs.godotengine.org/en/3.0/classes/class_canvaslayer.html#class-canvaslayer">CanvasLayer</a> chamado <b>HUD</b>.
+</p><p>O node <a rel="nofollow" class="external text" href="http://docs.godotengine.org/en/3.0/classes/class_canvaslayer.html#class-canvaslayer">CanvasLayer</a> vai nos permitir desenhar nosso elementos da interface do usuário em cima do resto do jogo, ou seja, as informações irão aparecer na frente de todos os outros objetos do jogo.
+</p><p>A HUD terá as seguintes informações:
+</p>
+<ul><li>Pontuação, que será alterada pelo <b>ScoreTimer</b>;</li>
+<li>Uma mensagem, tal como <b>Game Over</b> ou <b>Get Ready!</b>;</li>
+<li>Um botão <b>Start</b> para iniciar o jogo.</li></ul>
+<p>O node básico para os elementos da nossa UI é o <a rel="nofollow" class="external text" href="http://docs.godotengine.org/en/3.0/classes/class_control.html#class-control">Control</a>. Para criar nossa UI, usaremos dois tipos de nodes <a rel="nofollow" class="external text" href="http://docs.godotengine.org/en/3.0/classes/class_control.html#class-control">Control</a>: <a rel="nofollow" class="external text" href="http://docs.godotengine.org/en/3.0/classes/class_label.html#class-label">Label</a> e <a rel="nofollow" class="external text" href="http://docs.godotengine.org/en/3.0/classes/class_button.html#class-button">Button</a>.
+</p><p>Crie os seguintes nodes filhos do node HUD:
+</p>
+<ul><li><a rel="nofollow" class="external text" href="http://docs.godotengine.org/en/3.0/classes/class_label.html#class-label">Label</a> chamado ScoreLabel;</li>
+<li><a rel="nofollow" class="external text" href="http://docs.godotengine.org/en/3.0/classes/class_label.html#class-label">Label</a> chamado MessageLabel;</li>
+<li><a rel="nofollow" class="external text" href="http://docs.godotengine.org/en/3.0/classes/class_button.html#class-button">Button</a> chamado StartButton;</li>
+<li><a rel="nofollow" class="external text" href="http://docs.godotengine.org/en/3.0/classes/class_timer.html#class-timer">Timer</a> chamado MessageTimer.</li></ul>
+<p><br>
+</p>
+<table style="color: #cc9933; background-color: #ffffee; width: 100%; border:solid; border-width: 1px">
+<tbody><tr>
+<td>
+<table style="color: black; background-color: #ffffee; width: 100%;">
+<tbody><tr>
+<td style="width: 30px; vertical-align:top;">
+<p><a href="https://saulo.arisa.com.br/wiki/index.php/Arquivo:Tpl_note.png" class="image"><img alt="Tpl note.png" src="./StartScreen_files/Tpl_note.png" decoding="async" width="22" height="28"></a>
+</p>
+</td>
+<td style="text-align:left; vertical-align:top;">
+<p><b>Âncoras e Margens</b>: Os nodes de Control têm uma posição e tamanho, mas também possuem âncoras e margens. As âncoras definem a origem - ponto de referência para as bordas do node. As margens são atualizadas automaticamente quando você move ou redimensiona um node Control. Eles representam a distância das bordas do node de Control até sua âncora. Veja <a rel="nofollow" class="external text" href="http://docs.godotengine.org/en/3.0/getting_started/step_by_step/ui_introduction_to_the_ui_system.html#doc-design-interfaces-with-the-control-nodes">Design interfaces with the Control nodes</a> para saber mais detalhes.
+</p>
+</td></tr></tbody></table>
+</td></tr></tbody></table>
+<p>Organize os nodes tal como mostrado na figura abaixo. Clique no botão <b>Anchor</b> (âncora) para configurar a âncora do node do Control.
+</p>
+<center><a href="https://saulo.arisa.com.br/wiki/index.php/Arquivo:Godot_ui_anchor.png" class="image"><img alt="Godot ui anchor.png" src="./StartScreen_files/600px-Godot_ui_anchor.png" decoding="async" width="600" height="489" srcset="/wiki/images/3/3a/Godot_ui_anchor.png 1.5x"></a></center>
+<p>Você pode arrastar os nodes para os lugares manualmente ou pode, mais precisamente, usar as seguintes configurações:
+</p>
+<dl><dt>ScoreLabel</dt></dl>
+<ul><li>Layout: “Center Top”</li>
+<li>Margin:
+<ul><li>Left: -25</li>
+<li>Top: 0</li>
+<li>Right: 25</li>
+<li>Bottom: 100</li></ul></li>
+<li>Text: 0</li></ul>
+<dl><dt>MessageLabel</dt></dl>
+<ul><li>Layout: “Center Bottom”</li>
+<li>Margin:
+<ul><li>Left: -100</li>
+<li>Top: -200</li>
+<li>Right: 100</li>
+<li>Bottom: -100</li></ul></li>
+<li>Text: Dodge the Creeps!</li>
+<li>Selecionar Autowarp</li></ul>
+<dl><dt>StartButton</dt></dl>
+<ul><li>Layout: “Center”</li>
+<li>Margin:
+<ul><li>Left: -60</li>
+<li>Top: 70</li>
+<li>Right: 60</li>
+<li>Bottom: 150</li></ul></li>
+<li>Text: Start</li></ul>
+<p>A fonte padrão para os nodes Control são muito pequenas e não ficam muito bem quando redimensionadas. Há uma fonte inclusa nos <i>assets</i> do jogo chamada <b>Xolonium-Regular.ttf</b>. Para usar essa fonte, faça o seguinte procedimento para cada elemento da árvore do node Control:
+</p><p>1. Sob o <b>Custom Fonts</b>, escolha <b>New DynamicFont</b>
+</p>
+<center><a href="https://saulo.arisa.com.br/wiki/index.php/Arquivo:Godot_custom_font1.png" class="image"><img alt="Godot custom font1.png" src="./StartScreen_files/Godot_custom_font1.png" decoding="async" width="366" height="674"></a></center>
+<p>2. Clique no <b>DynamicFont</b> adicionado, em <b>Font Data</b> escolha <b>Load</b> e selecione o arquivo <b>Xolonium-Regular.ttf</b>. Você precisa também alterar o tamanho da fonte em <b>Size</b> para o valor <b>64</b>.
+</p>
+<center><a href="https://saulo.arisa.com.br/wiki/index.php/Arquivo:Godot_custom_font2.png" class="image"><img alt="Godot custom font2.png" src="./StartScreen_files/Godot_custom_font2.png" decoding="async" width="235" height="445"></a></center>
+<p>Agora adicione o script abaixo para o HUD:
+</p>
+<div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span><span class="n">extends</span> <span class="n">CanvasLayer</span>
+
+<span class="n">signal</span> <span class="n">start_game</span>
+</pre></div>
+<p>O <i>signal</i> <b>start_game</b> irão informar ao node <b>Main</b> que o botão foi pressionado.
+</p>
+<div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span><span class="n">func</span> <span class="n">show_message</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+    <span class="err">$</span><span class="n">MessageLabel</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="n">text</span>
+    <span class="err">$</span><span class="n">MessageLabel</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    <span class="err">$</span><span class="n">MessageTimer</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+</pre></div>
+<p>Essa função é chamada quando queremos mostrar uma mensagem temporariamente, tal como a <b>Get Ready</b>. Em <b>MessageTimer</b>, altere o <b>Wait Time</b> para <b>2</b> e altere a propriedade <b>One Shot</b> para <b>On</b>.
+</p>
+<div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span><span class="n">func</span> <span class="n">show_game_over</span><span class="p">():</span>
+    <span class="n">show_message</span><span class="p">(</span><span class="s2">"Game Over"</span><span class="p">)</span>
+    <span class="k">yield</span><span class="p">(</span><span class="err">$</span><span class="n">MessageTimer</span><span class="p">,</span> <span class="s2">"timeout"</span><span class="p">)</span>
+    <span class="err">$</span><span class="n">StartButton</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    <span class="err">$</span><span class="n">MessageLabel</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="s2">"Dodge the</span><span class="se">\n</span><span class="s2">Creeps!"</span>
+    <span class="err">$</span><span class="n">MessageLabel</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+<p>Essa função é chamada quando o jogador perde. Isso irá mostrar a mensagem <b>Game Over</b> por 2 segundos e retornar para a tela de título, que irá mostrar o botão <b>Start</b>.
+</p>
+<div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span><span class="n">func</span> <span class="n">update_score</span><span class="p">(</span><span class="n">score</span><span class="p">):</span>
+    <span class="err">$</span><span class="n">ScoreLabel</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">score</span><span class="p">)</span>
+</pre></div>
+<p>Essa função é chamada no <b>Main</b> sempre que a pontuação for alterada.
+</p><p>Conecte o <i>signal</i> <b>timeout()</b> da <b>MessageTimer</b> e o <i>signal</i> <b>pressed()</b> do <b>StartButton</b>.
+</p>
+<div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span><span class="n">func</span> <span class="n">_on_StartButton_pressed</span><span class="p">():</span>
+    <span class="err">$</span><span class="n">StartButton</span><span class="o">.</span><span class="n">hide</span><span class="p">()</span>
+    <span class="n">emit_signal</span><span class="p">(</span><span class="s2">"start_game"</span><span class="p">)</span>
+
+<span class="n">func</span> <span class="n">_on_MessageTimer_timeout</span><span class="p">():</span>
+    <span class="err">$</span><span class="n">MessageLabel</span><span class="o">.</span><span class="n">hide</span><span class="p">()</span>
+</pre></div>
+<h2><span class="mw-headline" id="Conectando_o_HUD_ao_Main">Conectando o HUD ao Main</span></h2>
+<p>Com nossa scene <b>HUD<i> criada, salve-a e volte para </i></b><i>Main'</i>. Instancie a scene <b>HUD</b> em <b>Main</b> tal como foi feito com <b>Player</b> e coloque-o bem abaixo na árvore. A árvore completa deve se parecer com a apresentada abaixo. Verifique se não está faltando nada:
+</p>
+<center><a href="https://saulo.arisa.com.br/wiki/index.php/Arquivo:Godot_completed_main_scene.png" class="image"><img alt="Godot completed main scene.png" src="./StartScreen_files/Godot_completed_main_scene.png" decoding="async" width="226" height="301"></a></center>
+<p>Depois precisaremos conectar as funcionalidades da <b>HUD</b> ao nosso <i>script</i> do <b>Main</b>. Isso requer algumas adições na scene <b>Main</b>.
+</p><p>Na aba <b>Node</b>, conecte o <i>signal</i> <b>start_game</b> do HUD à função <b>new_game()</b> do script da scene <b>Main</b>.
+</p><p>Em <b>new_game()</b>, atualize a pontuação para mostrar a mensagem <b>Get Ready</b>:
+</p>
+<div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span><span class="err">$</span><span class="n">HUD</span><span class="o">.</span><span class="n">update_score</span><span class="p">(</span><span class="n">score</span><span class="p">)</span>
+<span class="err">$</span><span class="n">HUD</span><span class="o">.</span><span class="n">show_message</span><span class="p">(</span><span class="s2">"Get Ready"</span><span class="p">)</span>
+</pre></div>
+<p>Em <b>game_over()</b> precisaremos chamar a função correspondente do <b>HUD</b>:
+</p>
+<div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span><span class="err">$</span><span class="n">HUD</span><span class="o">.</span><span class="n">update_score</span><span class="p">(</span><span class="n">score</span><span class="p">)</span>
+<span class="err">$</span><span class="n">HUD</span><span class="o">.</span><span class="n">show_game_over</span><span class="p">()</span>
+<span class="err">$</span><span class="n">HUD</span><span class="o">.</span><span class="n">show_message</span><span class="p">(</span><span class="s2">"Get Ready"</span><span class="p">)</span>
+</pre></div>
+<p>Finalmente, adicione em <b>_on_ScoreTimer_timeout() as linhas abaixo. Elas servirão para manter em sincronia a pontuação com a informação da pontuação na tela.</b>
+</p>
+<div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span><span class="err">$</span><span class="n">HUD</span><span class="o">.</span><span class="n">update_score</span><span class="p">(</span><span class="n">score</span><span class="p">)</span>
+</pre></div>
+<p>Agora você está pronto para jogar! Clique no botão <b>Play the Project</b>. Você deverá informar a scene principal, então escolha a <b>Main.tscn</b>.
+</p>
+<h1><span class="mw-headline" id="Finalizando">Finalizando</span></h1>
+<p>Temos agora um jogo completamente funcional, mas ainda estão sobrando alguns elementos para dar uma refinada na experiência do jogo. Sinta-se livre para alterar o <i>gameplay</i> com suas próprias ideias.
+</p>
+<h2><span class="mw-headline" id="Fundo">Fundo</span></h2>
+<p>Se você não achar fundo cinza padrão muito atraente, você pode alterar a cor. Uma forma de fazer isso é usar um <i>node</i> <b>ColorRect</b>. Crie-o como primeiro node filho de <b>Main</b>, para que ele seja o primeiro <i>node</i> de <b>Main</b> a ser desenhado. Caso contrário, ele será desenhado em cima dos outros nodes. O node <b>ColorRect</b> possui apenas uma propriedade, a <b>Color</b>. Escolha a cor que te agradar melhor e redimencione o tamanho do <b>ColorRect</b> para que ele cubra a tela.
+</p>
+<h2><span class="mw-headline" id="Efeitos_Sonoros">Efeitos Sonoros</span></h2>
+<p>Sons e música podem ser adicionados para dar mais efeitos e melhorar a experiência do jogo. No seu game, na pasta <i>assets</i>, você vai encontrar dois arquivos de som: "<b>House In a Forest Loop.ogg</b>" para a música de fundo e "<b>gameover.wav</b>" para quando o jogador perder.
+</p><p>Adicione dois nodes <b>AudioStreamPlayer</b> como filhos de <b>Main</b>. Renomeie-os para <b>Music</b> e <b>DeathSound</b>. Em cada um deles, clique na propriedade <b>Stream</b>, selecione <b>Load</b> e escolha o arquivo de áudio correspondente.
+</p><p>Para tocar a música, adicione <b>$Music.play()</b> na função <b>new_game()</b> e <b>$Music.stop()</b> na função <b>game_over()</b>.
+</p><p>Finalmente, adicione <b>$DeathSound.play()</b> na função <b>game_over()</b>.
+</p>
+<h2><span id="Partículas"></span><span class="mw-headline" id="Part.C3.ADculas">Partículas</span></h2>
+<p>Como um último toque visual, vamos adicionar um efeito que deixa um rastro que segue o movimento do personagem do jogador. Escolha seu <i>scene</i> <b>Player</b> e adicione um <i>node</i> <b>Particules2D</b> chamado <b>Trail</b>.
+</p><p>Existem várias propriedades que você pode trabalhar para configurar partículas. Sinta-se livre para experimentar e criar diferentes efeitos. Para esse jogo de exemplo, usaremos a seguinte configuração:
+</p>
+<center><a href="https://saulo.arisa.com.br/wiki/index.php/Arquivo:Godot_particle_trail_settings.png" class="image"><img alt="Godot particle trail settings.png" src="./StartScreen_files/Godot_particle_trail_settings.png" decoding="async" width="229" height="702"></a></center>
+<p>Você também precisa criar um <b>Material</b> clicando em <b>&lt;null&gt;</b> e então <b>New ParticlesMaterial</b>. As configurações para ele serão as seguintes:
+</p>
+<center><a href="https://saulo.arisa.com.br/wiki/index.php/Arquivo:Godot_particle_trail_settings2.png" class="image"><img alt="Godot particle trail settings2.png" src="./StartScreen_files/Godot_particle_trail_settings2.png" decoding="async" width="231" height="645"></a></center>
+<p>Para criar um gradiente para as configurações da <b>Color Ramp</b>, iremos usar um gradiente que usa o alpha (transparência) do <i>sprite</i> de 0.5 (semitransparente) até 0.0 (totalmente transparente).
+</p><p>Clique em <b>New GradientTexture</b> e, abaixo de <b>Gradient</b>, clique em <b>New Gradient</b>. Você irá ver a janela abaixo:
+</p>
+<center><a href="https://saulo.arisa.com.br/wiki/index.php/Arquivo:Godot_color_gradient_ui.png" class="image"><img alt="Godot color gradient ui.png" src="./StartScreen_files/Godot_color_gradient_ui.png" decoding="async" width="234" height="486"></a></center>
+<p>As caixinhas a esquerda e a direita representam a cor inicial e final. Clique em cada uma delas e no quadro maior na direita para escolher a cor. Para a primeira cor, defina o valor de <b>A</b> (alpha) para mais ou menos na metade. Para o segundo, defina o  todo para <b>0</b>.
+</p><p><br>
+</p>
+<table style="color: #cc9933; background-color: #ffffee; width: 100%; border:solid; border-width: 1px">
+<tbody><tr>
+<td>
+<table style="color: black; background-color: #ffffee; width: 100%;">
+<tbody><tr>
+<td style="width: 30px; vertical-align:top;">
+<p><a href="https://saulo.arisa.com.br/wiki/index.php/Arquivo:Tpl_note.png" class="image"><img alt="Tpl note.png" src="./StartScreen_files/Tpl_note.png" decoding="async" width="22" height="28"></a>
+</p>
+</td>
+<td style="text-align:left; vertical-align:top;">
+<p>Veja também <a rel="nofollow" class="external text" href="http://docs.godotengine.org/en/3.0/classes/class_particles2d.html#class-particles2d">Particles2D</a> para maiores detalhes sobre o uso de efeitos de partículas.
+</p>
+</td></tr></tbody></table>
+</td></tr></tbody></table>
+<p><br>
+</p>
+<h1><span class="mw-headline" id="Arquivos_do_Projeto">Arquivos do Projeto</span></h1>
+<p>Você pode encontrar uma versão completa desse projeto aqui: <a rel="nofollow" class="external free" href="https://github.com/kidscancode/Godot3_dodge/releases">https://github.com/kidscancode/Godot3_dodge/releases</a>
+</p><p><br>
+</p>
+<table style="color: #cc9933; background-color: #ffffee; width: 100%; border:solid; border-width: 1px">
+<tbody><tr>
+<td>
+<table style="color: black; background-color: #ffffee; width: 100%;">
+<tbody><tr>
+<td style="width: 30px; vertical-align:top;">
+<p><a href="https://saulo.arisa.com.br/wiki/index.php/Arquivo:Tpl_note.png" class="image"><img alt="Tpl note.png" src="./StartScreen_files/Tpl_note.png" decoding="async" width="22" height="28"></a>
+</p>
+</td>
+<td style="text-align:left; vertical-align:top;">
+<p>Esse tutorial é uma tradução livre de um <a rel="nofollow" class="external text" href="http://docs.godotengine.org/en/3.0/getting_started/step_by_step/your_first_game.html">trecho da documentação</a> do Godot Engine.
+</p>
+</td></tr></tbody></table>
+</td></tr></tbody></table>
+<!-- 
+NewPP limit report
+Cached time: 20230615040140
+Cache expiry: 86400
+Dynamic content: false
+Complications: []
+CPU time usage: 0.193 seconds
+Real time usage: 5.499 seconds
+Preprocessor visited node count: 312/1000000
+Post‐expand include size: 8409/2097152 bytes
+Template argument size: 3679/2097152 bytes
+Highest expansion depth: 3/40
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 20869/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00% 5315.426      1 -total
+  0.10%    5.129      1 Predefinição:Warning
+  0.09%    5.008     11 Predefinição:Note
+  0.09%    4.843      4 Predefinição:Tip
+-->
+
+<!-- Saved in parser cache with key wiki-mediawiki-:pcache:idhash:425-0!canonical and timestamp 20230615040135 and revision id 7290
+ -->
+</div></div><div class="printfooter">
+Disponível em “<a dir="ltr" href="https://saulo.arisa.com.br/wiki/index.php?title=Godot_Engine:_Meu_Primeiro_Jogo&amp;oldid=7290">https://saulo.arisa.com.br/wiki/index.php?title=Godot_Engine:_Meu_Primeiro_Jogo&amp;oldid=7290</a>”</div>
+<div class="visualClear"></div></div></div></div></div><div id="content-bottom-stuff"><div id="catlinks" class="catlinks catlinks-allhidden" data-mw="interface"></div></div></div><div id="mw-site-navigation"><div id="p-logo" class="mw-portlet" role="banner"><a class="mw-wiki-logo fallback" href="https://saulo.arisa.com.br/wiki/index.php/P%C3%A1gina_principal" title="Acessar a página principal"></a></div><div id="site-navigation" class="sidebar-chunk"><h2><span>Navegação</span></h2><div class="sidebar-inner"><div role="navigation" class="mw-portlet" id="p-navigation" aria-labelledby="p-navigation-label"><h3 id="p-navigation-label" lang="pt-BR" dir="ltr">Navegação</h3><div class="mw-portlet-body"><ul lang="pt-BR" dir="ltr"><li id="n-mainpage-description"><a href="https://saulo.arisa.com.br/wiki/index.php/P%C3%A1gina_principal" title="Acessar a página principal [alt-shift-z]" accesskey="z"><span>Página principal</span></a></li><li id="n-recentchanges"><a href="https://saulo.arisa.com.br/wiki/index.php/Especial:Mudan%C3%A7as_recentes" title="Uma lista de mudanças recentes nesta wiki [alt-shift-r]" accesskey="r"><span>Mudanças recentes</span></a></li><li id="n-randompage"><a href="https://saulo.arisa.com.br/wiki/index.php/Especial:Aleat%C3%B3ria" title="Acessar uma página de forma aleatória [alt-shift-x]" accesskey="x"><span>Página aleatória</span></a></li><li id="n-help-mediawiki"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents"><span>Ajuda do MediaWiki</span></a></li></ul></div></div></div></div><div id="site-tools" class="sidebar-chunk"><h2><span>Ferramentas da wiki</span></h2><div class="sidebar-inner"><div role="navigation" class="mw-portlet" id="p-tb" aria-labelledby="p-tb-label"><h3 id="p-tb-label" lang="pt-BR" dir="ltr">Ferramentas da wiki</h3><div class="mw-portlet-body"><ul lang="pt-BR" dir="ltr"><li id="t-specialpages"><a href="https://saulo.arisa.com.br/wiki/index.php/Especial:P%C3%A1ginas_especiais" title="Lista de páginas especiais [alt-shift-q]" accesskey="q"><span>Páginas especiais</span></a></li></ul></div></div></div></div></div><div id="mw-related-navigation"><div id="page-tools" class="sidebar-chunk"><h2><span>Ferramentas de páginas</span></h2><div class="sidebar-inner"><div role="navigation" class="mw-portlet emptyPortlet" id="p-cactions" aria-labelledby="p-cactions-label"><h3 id="p-cactions-label" lang="pt-BR" dir="ltr">Ferramentas de páginas</h3><div class="mw-portlet-body"><ul lang="pt-BR" dir="ltr"></ul></div></div><div role="navigation" class="mw-portlet emptyPortlet" id="p-userpagetools" aria-labelledby="p-userpagetools-label"><h3 id="p-userpagetools-label" lang="pt-BR" dir="ltr">Ferramentas da página do usuário</h3><div class="mw-portlet-body"><ul lang="pt-BR" dir="ltr"></ul></div></div><div role="navigation" class="mw-portlet" id="p-pagemisc" aria-labelledby="p-pagemisc-label"><h3 id="p-pagemisc-label" lang="pt-BR" dir="ltr">Mais</h3><div class="mw-portlet-body"><ul lang="pt-BR" dir="ltr"><li id="t-whatlinkshere"><a href="https://saulo.arisa.com.br/wiki/index.php/Especial:P%C3%A1ginas_afluentes/Godot_Engine:_Meu_Primeiro_Jogo" title="Lista de todas as páginas que possuem links para esta [alt-shift-j]" accesskey="j"><span>Páginas afluentes</span></a></li><li id="t-recentchangeslinked"><a href="https://saulo.arisa.com.br/wiki/index.php/Especial:Mudan%C3%A7as_relacionadas/Godot_Engine:_Meu_Primeiro_Jogo" rel="nofollow" title="Mudanças recentes nas páginas para as quais esta possui links [alt-shift-k]" accesskey="k"><span>Mudanças relacionadas</span></a></li><li id="t-print"><a href="javascript:print();" rel="alternate" title="Versão para impressão desta página [alt-shift-p]" accesskey="p"><span>Versão para impressão</span></a></li><li id="t-permalink"><a href="https://saulo.arisa.com.br/wiki/index.php?title=Godot_Engine:_Meu_Primeiro_Jogo&amp;oldid=7290" title="Link permanente para esta versão desta página"><span>Ligação permanente</span></a></li><li id="t-info"><a href="https://saulo.arisa.com.br/wiki/index.php?title=Godot_Engine:_Meu_Primeiro_Jogo&amp;action=info" title="Mais informações sobre esta página"><span>Informações da página</span></a></li><li id="t-pagelog"><a href="https://saulo.arisa.com.br/wiki/index.php?title=Especial:Registro&amp;page=Godot+Engine%3A+Meu+Primeiro+Jogo"><span>Registos da página</span></a></li></ul></div></div></div></div></div><div class="visualClear"></div></div></div><div id="mw-footer-container" class="mw-footer-container ts-container"><div id="mw-footer" class="mw-footer ts-inner"><div id="footer-bottom" class="mw-footer" role="contentinfo" lang="pt-BR" dir="ltr"><div id="f-poweredbyico" class="footer-icons"><a href="https://www.mediawiki.org/"><img src="./StartScreen_files/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/wiki/resources/assets/poweredby_mediawiki_132x47.png 1.5x, /wiki/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"></a></div><ul id="f-list" class="footer-places"><li id="lastmod"> Esta página foi modificada pela última vez em 18 de março de 2021, às 15h44min.</li><li id="privacy"><a href="https://saulo.arisa.com.br/wiki/index.php/Aulas:Pol%C3%ADtica_de_privacidade" title="Aulas:Política de privacidade">Política de privacidade</a></li><li id="about"><a href="https://saulo.arisa.com.br/wiki/index.php/Aulas:Sobre" title="Aulas:Sobre">Sobre Aulas</a></li><li id="disclaimer"><a href="https://saulo.arisa.com.br/wiki/index.php/Aulas:Aviso_geral" title="Aulas:Aviso geral">Termo de responsabilidade</a></li></ul><div class="visualClear"></div></div></div></div></div><script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.193","walltime":"5.499","ppvisitednodes":{"value":312,"limit":1000000},"postexpandincludesize":{"value":8409,"limit":2097152},"templateargumentsize":{"value":3679,"limit":2097152},"expansiondepth":{"value":3,"limit":40},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":20869,"limit":5000000},"timingprofile":["100.00% 5315.426      1 -total","  0.10%    5.129      1 Predefinição:Warning","  0.09%    5.008     11 Predefinição:Note","  0.09%    4.843      4 Predefinição:Tip"]},"cachereport":{"timestamp":"20230615040140","ttl":86400,"transientcontent":false}}});});</script><script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":141});});</script></body></html>
